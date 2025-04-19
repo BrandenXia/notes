@@ -1,12 +1,8 @@
-#import "@preview/tapestry:0.0.3": *
+#import "@preview/tapestry:0.0.4": *
 
 #show: tapestry.with(
   title: "Intro to Modern Physics",
   year: "2024-2025",
-)
-
-#set text(
-  font: "libertinus serif"
 )
 
 #import "@preview/physica:0.9.5" : expval
@@ -29,15 +25,16 @@ $
 
 + To every observable in QM, there is a corresponding Hermitian operator:
 
-  #table(
-    columns: (1fr, 1fr, 1fr),
-    align: center + horizon,
-    table.header[*Observable*][*Operator*][*Operation*],
-    $x$, $hat(x)$, $ x dot psi(x, t) $,
-    $p$, $p$, $ - i hbar dot pdv(,x) psi(x, t) $,
-    $E$, $hat(H)$, $ [1 / (2m) hat(p)^2 + V(x)] psi $,
-    $V(x)$, $hat(V)(x)$, $ V(x) psi $
-  )
+  #apply-table[
+    #table(
+      columns: (1fr, 1fr, 1fr),
+      table.header[Observable][Operator][Operation],
+      $x$, $hat(x)$, $ x dot psi(x, t) $,
+      $p$, $p$, $ - i hbar dot pdv(,x) psi(x, t) $,
+      $E$, $hat(H)$, $ [1 / (2m) hat(p)^2 + V(x)] psi $,
+      $V(x)$, $hat(V)(x)$, $ V(x) psi $
+    )
+  ]
 
 + Any measurement of the observable $hat(A)$, we only ever observe the eigenvalues, $a$, that satisfy
 

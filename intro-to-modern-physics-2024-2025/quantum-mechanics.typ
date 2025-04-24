@@ -147,7 +147,7 @@ $ integral_a^b dd(x) abs(psi(x, t))^2 = "prob. of finding the particles in" [a, 
 
 + Realist position: position was near $c$ (Einstein's position)
   - QM is incomplete
-+ Orthodox position / Copenhagen Interpretation - particle wasn’t anywhere (Bohr, most popular among physicists)
++ Orthodox position / Copenhagen Interpretation - particle was not anywhere (Bohr, most popular among physicists)
   - something peculiar about “measurement”
 + Agnostic position - dismiss the question as metaphysics
 
@@ -175,7 +175,7 @@ $
   expval(p) &= - i hbar integral_(-oo)^oo dd(x) psi^* pdv(, x) psi \
 $
 
-If we can measure 2 observable at the same time meaning 1 doesn’t impact our ability to measure the other --- “compatible” observables
+If we can measure 2 observable at the same time meaning 1 does not impact our ability to measure the other --- “compatible” observables
 
 = Commutator of 2 Ops
 

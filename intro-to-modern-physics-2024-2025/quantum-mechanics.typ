@@ -199,3 +199,63 @@ $ sigma_x sigma_p >= hbar / 2 $
 = Generalized Uncertainty Principle
 
 $ sigma_A^2 sigma_B^2 >= (1 / (2i) expval([hat(A), hat(B)]))^2 $
+
+= The Time Independent Schrödinger Equation
+
+We find $Psi(va(x),t)$ by specifying a potential of $V(va(x))$ by solving the Schrödinger Equation:
+
+How do we solve PDEs? Separation of variables.
+
+$ Psi(x, t) = psi(x, t) dot phi(t) $
+
+$
+  pdv(Psi, t) = psi(x) dv(phi, t) quad pdv(Psi, x, 2) = dv(psi, x, 2) dot phi(t)
+$
+
+Substituting into the Schrödinger Equation:
+
+$
+  - hbar^2 / (2m) dv(psi, x, 2) psi + V(x) psi phi &=  i hbar psi dv(phi, t) \
+  - hbar ^2 / (2m) dot 1 / psi + V(x) &= i hbar 1 / psi dv(phi, t) \
+$
+
+Can only be true if both sides are equal to a constant $E$:
+
+$
+  - hbar^2 / (2m) 1 / psi(x) dot dv(psi, x, 2) + V(x) &= E \
+  - hbar^2 / (2m) dv(psi, x, 2) + V(x) psi(x) &= E psi(x)
+$
+
+which is the time-independent Schrödinger equation.
+
+$
+  i hbar dv(phi, t) &= E phi(t) quad "since" 1 / i = -i \
+  dv(phi, t) &= - i E / hbar phi(t) arrow phi(t) = exp(- i E t / hbar)
+$
+
+General solutions to S.E. take the form:
+
+$
+  Psi(x, t) = psi(x) exp(- i E t / hbar)
+$
+
++ Separable solutions are "stationary states"
+  $ abs(Psi(x, t))^2 = Psi^*(x,t) Psi(x,t) = abs(psi(x))^2 $
+  $
+    expval(hat(Q)(x, p)) &= integral_(-oo)^oo dd(x) Psi^*(x,t) hat(Q)(x, pdv(, x)) Psi(x,t) \
+    &= integral_(-oo)^oo dd(x) psi^*(x) hat(Q) psi(x) \
+  $
++ These are states of definite energy \
+  in Q.M., the total energy is given by the "Hamiltonian": $H = p^2 / (2m) + V(x)$
+  $ hat(H) = - hbar^2 / (2m) pdv(, x, 2) + V(x) arrow hat(H) psi(x) = E psi(x) $
+  $
+    expval(hat(H)) &= integral_(-oo)^oo dd(x) psi^*(x) (hat(H) psi(x)) \
+    &= E integral_(-oo)^oo dd(x) psi^*(x) psi(x) = E \
+    expval(hat(H)^2) &= integral_(-oo)^oo dd(x) psi^*(x) [ hat(H)(hat(H) psi(x)) ] = E^2 \
+    sigma_hat(H)^2 &= expval(hat(H)^2) - expval(hat(H))^2 = 0
+  $
+
++ We'll find that TISE permits an $oo$ number of solutions, each with a different energy $E_n$. \
+  We can write the general solutions to the S.E. for any potential V(x) as the "superposition" / linear combination of separable states.
+  $ Psi(x, t) = sum_(n = 1)^oo c_n psi_n (x) exp( - i E_n t / hbar) $
+  We'll find that the coefficients $c_n$ by looking at the boundary conditions.

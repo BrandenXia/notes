@@ -177,7 +177,7 @@ $
 
 If we can measure 2 observable at the same time meaning 1 does not impact our ability to measure the other --- “compatible” observables
 
-= Commutator of 2 Ops
+== Commutator of 2 Ops
 
 $
   [hat(A), hat(B)] = hat(A) hat(B) - hat(B) hat(A) = cases(
@@ -196,7 +196,7 @@ $ [hat(x), hat(x)^n] = 0, [hat(p), hat(p)^n] = 0, [E, t] != 0 $
 
 $ sigma_x sigma_p >= hbar / 2 $
 
-= Generalized Uncertainty Principle
+== Generalized Uncertainty Principle
 
 $ sigma_A^2 sigma_B^2 >= (1 / (2i) expval([hat(A), hat(B)]))^2 $
 
@@ -221,10 +221,11 @@ $
 
 Can only be true if both sides are equal to a constant $E$:
 
-$
-  - hbar^2 / (2m) 1 / psi(x) dot dv(psi, x, 2) + V(x) &= E \
-  - hbar^2 / (2m) dv(psi, x, 2) + V(x) psi(x) &= E psi(x)
-$
+$ - hbar^2 / (2m) 1 / psi(x) dot dv(psi, x, 2) + V(x) = E $
+
+#rect[
+  $ - hbar^2 / (2m) dv(psi, x, 2) + V(x) psi(x) &= E psi(x) $
+]
 
 which is the time-independent Schrödinger equation.
 
@@ -233,7 +234,7 @@ $
   dv(phi, t) &= - i E / hbar phi(t) arrow phi(t) = exp(- i E t / hbar)
 $
 
-General solutions to S.E. take the form:
+General solutions to S.E take the form:
 
 $
   Psi(x, t) = psi(x) exp(- i E t / hbar)
@@ -255,7 +256,76 @@ $
     sigma_hat(H)^2 &= expval(hat(H)^2) - expval(hat(H))^2 = 0
   $
 
-+ We'll find that TISE permits an $oo$ number of solutions, each with a different energy $E_n$. \
-  We can write the general solutions to the S.E. for any potential V(x) as the "superposition" / linear combination of separable states.
++ We'll find that T.I.S.E permits an $oo$ number of solutions, each with a different energy $E_n$. \
+  We can write the general solutions to the S.E for any potential V(x) as the "superposition" / linear combination of separable states.
   $ Psi(x, t) = sum_(n = 1)^oo c_n psi_n (x) exp( - i E_n t / hbar) $
   We'll find that the coefficients $c_n$ by looking at the boundary conditions.
+
+= Infinite Square Well
+
+$
+  V(x) = cases(
+    0 quad "if" 0 <= x <= a \
+    oo quad "otherwise"
+  )
+$
+
+T.I.S.E:
+
+$ - hbar^2 / (2m) dv(psi, x, 2) + V(x) psi = E psi $
+
+In the well:
+
+$ - hbar / (2m) dv(psi, x, 2) = E psi $
+
+Take $k := sqrt(2 m E) / hbar$, we have:
+
+$ dv(psi, x, 2) = - k^2 psi => psi(x) = A sin(k x) + B cos(k x) $
+
+Boundary conditions:
+
++ $psi$ is continuous
++ $dv(psi, x)$ is continuous
+
+$ psi(x=0) = A sin(0) + B cos(0) = 0 => B = 0 $
+$ psi(x=a) = A sin(k a) => sin(k a)  $
+
+Distinct solutions:
+
+$ k_n = (n pi) / a, n in bb(N) => k_n^2 = (2 m E_n) / hbar $
+
+#rect[
+  $ E_n = (n^2 pi^2 hbar^2) / (2 m a^2) $
+  $ psi_n (x) = sqrt(2 / a) sin((n pi) / a x) $
+]
+
+$n = 1$: "ground state" \
+$n != 1$: "excited states"
+
+== Important properties of ${psi_n (x)}$
+
++ They're mutually orthogonal
+  $ integral_0^a dd(x) psi_n^* (x) psi_m (x) = cases(
+    0 quad "if" n != m \
+    1 quad "if" n = m
+  ) $
++ They're "complete":
+  $ f(x) = sum_(n = 1)^oo c_n psi_n (x) = sqrt(2 / a) sum_(n = 1)^oo c_n sin( (n pi) / a x) $
+  $ Psi(x, t) = sum_(n=1)^oo c_n psi_n (x) exp(- (i E_n t) / hbar) $
+  $ integral dd(x) psi_m^* (x) Psi(x, 0) = sum_(n=1)^oo c_n integral dd(x) psi_m^* (x) psi_n (x) = sum_(n=1)^oo c_n delta_(m n) = c_m $
+  $ "where" delta_(m n) = cases(
+    0 quad "if" m != n \
+    1 quad "if" m = n
+  ) $
+  For the infinite square well:
+  $ Psi(x, t) = sqrt(2 / a) sum_(n=1)^oo c_n sin((n pi) / a x) exp( - (i n^2 pi^2 hbar t) / (2 m a^2) ) $
+  $ c_n = integral dd(x) psi_n^* (x) Psi(x, 0) $
+
+== Interpretation of $c_n$
+
+$ abs(c_n)^2 = "probability that a measurement of the energy yields" E_n $
+
++
+  $ sum_(n=1)^oo abs(c_n)^2 = 1 $
++
+  $ expval(H) = sum_(n=1)^oo abs(c_n)^2 E_n quad "(expectation value of the energy)" $

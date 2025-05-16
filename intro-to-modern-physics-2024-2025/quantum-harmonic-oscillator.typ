@@ -105,7 +105,7 @@ We can now verify some properties of @HermiteFunction to prove that it can be a 
 + Normalizable
 
   $
-  integral_(oo)^oo dd(x) phi_n^2 (x) &= integral_(-oo)^oo dd(x) H_n^2 (x) exp(-x^2) \
+  integral_(-oo)^oo dd(x) phi_n^2 (x) &= integral_(-oo)^oo dd(x) H_n^2 (x) exp(-x^2) \
   &= 2^n n! sqrt(pi)
   $
 

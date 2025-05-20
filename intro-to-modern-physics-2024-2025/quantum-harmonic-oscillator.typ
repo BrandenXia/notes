@@ -18,7 +18,8 @@
     #h(1fr)
     2024-2025
     #line(length: 100%)
-  ]
+  ],
+  numbering: "- 1 -",
 )
 
 #set heading(numbering: "1.")
@@ -63,7 +64,7 @@ $ y'' - 2 x y' + 2 n y = 0 $ <Hermite>
 
 The solution to @Hermite can be derived through series expansion, and is given by:
 
-$ H_n (x) = n! sum_(j = 0)^M ((-1)^j (2x)^(n-2j))/(j! (n-2j)!) $ <HermitePolynomial>
+$ H_n (x) = n! sum_(j = 0)^M ((-1)^j (2x)^(n-2j))/(j! (n-2j)!) quad "where" M = cases( n / 2 "if" n "is even" \ (n+1) / 2 "if" n "is odd" ) $ <HermitePolynomial>
 
 For @Hermite to take a similar form as @TISE, we can consider the substitution $y = exp(x^2 / 2) phi$. By making this substitution, we obtain:
 
@@ -147,7 +148,19 @@ $
   &= A_n exp(- (m omega) / (2 hbar) x^2) H_n (sqrt( (m omega) / hbar ) x)
 $
 
+To solve for $A_n$, we normalize $psi_n (x)$:
+
 $
-  Psi(x, t) &= exp(- (m omega) / (2 hbar) x^2) sum_(n=1)^oo c_n H_n (sqrt( (m omega) / hbar ) x) exp(- i E_n t / hbar) \
-  &quad "where" E_n = hbar omega (n + 1/2) "and" omega = sqrt(k / m)
+  integral_(-oo)^oo dd(x) abs(psi_n (x))^2 &= integral_(-oo)^oo dd(x) |A_n|^2 H_n^2 (sqrt( (m omega) / hbar ) x) exp(- (m omega) / hbar x^2) \
+  1 &= abs(A_n)^2 sqrt( (m omega) / (hbar pi) ) 2^n n! \
+  abs(A_n)^2 &= sqrt( (hbar pi) / (m omega) ) 2^(-n) / n! \
+  abs(A_n) &= sqrt(2^(-n) / n!) ((hbar pi) / (m omega))^(1/4)
+$
+
+$
+  Psi(x, t) &= sqrt(2^(-n) / n!) ((hbar pi) / (m omega))^(1/4)
+ exp(- (m omega) / (2 hbar) x^2) sum_(n=1)^oo c_n H_n (sqrt( (m omega) / hbar ) x) exp(- i E_n t / hbar) \
+  &quad "where" E_n = hbar omega (n + 1/2) "and" omega = sqrt(k / m) \
+  &quad "and" c_n = sqrt(2^(-n) / n!) ((hbar pi) / (m omega))^(1/4)
+ integral_(-oo)^oo dd(x) Psi(x, 0) H_n (sqrt( (m omega) / hbar ) x) exp(- (m omega) / (2 hbar) x^2) \
 $

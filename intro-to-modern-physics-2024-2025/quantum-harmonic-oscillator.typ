@@ -33,30 +33,36 @@
   number-mode: "label",
 )
 
-Quantum harmonic oscillator is a system in Quantum Mechanics similar to the harmonic oscillation, given by $m dv(x, t) = -k x$, in Classical Mechanics. 
+Quantum harmonic oscillator is a system in Quantum Mechanics similar to the harmonic oscillation, given by $m dv(x, t) = -k x$, in Classical Mechanics.
 
-= Setup of the Problem
+= Why do we need to study quantum harmonic oscillator?
+
+Although there's no perfect harmonic oscillator in the real world, when considering a second order Taylor Series expansion of the potential energy to approximate the potential energy of a system, we can see that the potential energy of a system can be approximated by a harmonic oscillator.
+
+= Analytic Method
+
+== Setup of the Problem
 
 In Classical Mechanics, the potential energy of a harmonic oscillator is given by:
 
 $ V(x) = 1/2 k x^2 $
 
-By plugging this into the Schrodinger Equation, we have:
+By plugging this into the Schrödinger Equation, we have:
 
 $ - hbar / (2m) pdv(Psi, x, 2) + 1 / 2 k x^2 = i hbar pdv(Psi, t) $ <SE>
 
-Since we know that general solutions to the Schrodinger Equation can be written as the linear combination of separable states, we have:
+Since we know that general solutions to the Schrödinger Equation can be written as the linear combination of separable states, we have:
 
 $
   Psi(x,t) &= sum_(n = 1)^oo c_n psi_n (x) exp(- i E_n t / hbar) \
   Psi(x,0) &= sum_(n = 1)^oo c_n psi_n (x)
 $
 
-Our goal is to find $psi_n (x)$ that satisfies the time-independent Schrodinger Equation:
+Our goal is to find $psi_n (x)$ that satisfies the time-independent Schrödinger Equation:
 
 $ - hbar^2 / (2m) dv(psi, x, 2) + 1/2 k x^2  psi &= E psi $ <TISE>
 
-= Solving the differential equation
+== Solving the differential equation
 
 In order to solve @TISE, we first consider the Hermite differential equation:
 
@@ -90,9 +96,9 @@ Since we have $phi = exp(-x^2 / 2) y$, using @HermitePolynomial, we know that th
 
 $ phi_n (x) = exp(- x^2 / 2) H_n (x) $ <HermiteFunction>
 
-= Properties of $phi_n (x)$
+== Properties of $phi_n (x)$
 
-We can now verify some properties of @HermiteFunction to prove that it can be a solution to the time-independent Schrodinger equation.
+We can now verify some properties of @HermiteFunction to prove that it can be a solution to the time-independent Schrödinger equation.
 
 + Mutually Orthogonal
   $
@@ -110,7 +116,7 @@ We can now verify some properties of @HermiteFunction to prove that it can be a 
   &= 2^n n! sqrt(pi)
   $
 
-= Back to time-independent Schrodinger equation
+== Back to time-independent Schrödinger equation
 
 Going back to @TISE. Let $omega := sqrt(k / m)$, which means $k = m omega^2$, we obtain:
 
@@ -133,7 +139,7 @@ $
   dv(psi, s, 2) + ((2E) / (hbar omega) - s^2) psi &= 0
 $ <TISEWithSubstitution2>
 
-As we verified already, @HermiteFunction is a solution to @HermiteDifferentialEquationWithSubstitution and satisfies the properties of solution to the time-independent Schrodinger equation.
+As we verified already, @HermiteFunction is a solution to @HermiteDifferentialEquationWithSubstitution and satisfies the properties of solution to the time-independent Schrödinger equation.
 
 Notice that the only difference between @TISEWithSubstitution2 and @HermiteDifferentialEquationWithSubstitution is the $(2E) / (hbar omega)$ and $(2n + 1)$ term. Therefore, we can consider:
 
@@ -164,3 +170,76 @@ $
   &quad "and" c_n = sqrt(2^(-n) / n!) ((hbar pi) / (m omega))^(1/4)
  integral_(-oo)^oo dd(x) Psi(x, 0) H_n (sqrt( (m omega) / hbar ) x) exp(- (m omega) / (2 hbar) x^2) \
 $
+
+= Algebraic Method
+
+Recall that we already define $omega := sqrt(k / m)$, from @TISE we have
+
+$ 1/(2m) [ (hbar / i dv(, x))^2 + (m omega x)^2 ] psi = E psi $ <TISESuggestive>
+
+== Ladder Operators
+
+Recall from Algebra 1, we have $u^2 + v^2 = (u + i v) (u - i v)$, we can consider:
+
+$ a_plus.minus := 1 / sqrt(2m) (hbar / i dv(, x) plus.minus i m omega x) $
+
+$
+  a_- a_+ &= 1 / (2m) [(hbar / i dv(, x))^2 + (m omega x)^2] + 1/2 hbar omega \
+  a_+ a_- &= 1 / (2m) [(hbar / i dv(, x))^2 + (m omega x)^2] - 1/2 hbar omega
+$
+
+Therefore, we can rewrite @TISESuggestive as:
+
+$
+  (a_- a_+ - 1/2 hbar omega) psi &= E psi \
+  (a_+ a_- + 1/2 hbar omega) psi &= E psi
+$ <TISELadderOperators>
+
+== Properties of Ladder Operators
+
+Now, we can consider $a_+ psi$ and $a_- psi$. Replacing $psi$ with $a_+ psi$ in @TISELadderOperators, we have:
+
+$
+  &quad (a_+ a_- + 1/2 hbar omega) (a_+ psi) \
+  &= a_+ (a_- a_+ + 1/2 hbar omega) psi \
+  &= a_+ (a_- a_+ -1/2 hbar omega + hbar omega) psi \
+  &= a_+ [ (a_- a_+ - 1/2 hbar omega) psi + hbar omega psi ] \
+  &= (E + hbar omega)(a_+ psi)
+$
+
+We can prove this for $a_- psi$ similarly that it gives energy $E-hbar omega$.
+
+If we consider the state of energy of $psi$, applying the ladder operators is increasing and decreasing the energy of $psi$, like climbing up and down the ladder of energy. Therefore, $a_+$ is called the raising operator and $a_-$ is called the lowering operator.
+
+By instinct, we know that energy can't decrease infinitely, which means that there must be a "ground state", where applying $a_-$ won't give us anything:
+
+$ a_- psi_0 = 0 $
+
+== Solving $psi_0$
+
+Expanding $a_-$, we have:
+
+$
+  1 / sqrt(2m) (hbar / i dv(, x) - i m omega x) psi_0 &= 0 \
+  hbar / i dv(psi_0, x) - i m omega x psi_0 &= 0 \
+  dv(psi_0, x) + (m omega x) / hbar psi_0 &= 0 \
+  integral dd(psi_0)/ psi_0 &= - integral (m omega x) / hbar dd(x) \
+  ln(psi_0) &= - (m omega) / hbar x^2 / 2 + A_0 \
+  psi_0 &= A exp(- (m omega) / (2 hbar) x^2 )
+$
+
+Putting this into @TISELadderOperators, we have:
+
+$
+  (a_+ a_- + 1/2 hbar omega) psi_0 &= E_0 psi_0 \
+  a_+ (a_- psi_0) + 1/2 hbar omega psi_0 &= E_0 psi_0 \
+  E_0 &= 1/2 hbar omega
+$
+
+To get the excited states, we can continue to apply the raising operator $a_+$:
+
+$ psi_n = A_n (a_+)^n exp(- (m omega) / (2 hbar) x^2 ) $
+
+The corresponding energy is:
+
+$ E_n = (1/2 + n) hbar omega $

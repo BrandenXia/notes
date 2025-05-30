@@ -33,7 +33,7 @@
   number-mode: "label",
 )
 
-Quantum harmonic oscillator is a system in Quantum Mechanics similar to the harmonic oscillation, given by $m dv(x, t) = -k x$, in Classical Mechanics.
+Quantum harmonic oscillator is a system in Quantum Mechanics similar to the harmonic oscillation, given by $m dv(x, t, 2) = -k x$, in Classical Mechanics.
 
 = Why do we need to study quantum harmonic oscillator?
 
@@ -49,7 +49,7 @@ $ V(x) = 1/2 k x^2 $
 
 By plugging this into the Schrödinger Equation, we have:
 
-$ - hbar / (2m) pdv(Psi, x, 2) + 1 / 2 k x^2 = i hbar pdv(Psi, t) $ <SE>
+$ - hbar / (2m) pdv(Psi, x, 2) + 1 / 2 k x^2 psi = i hbar pdv(Psi, t) $ <SE>
 
 Since we know that general solutions to the Schrödinger Equation can be written as the linear combination of separable states, we have:
 
@@ -68,7 +68,7 @@ In order to solve @TISE, we first consider the Hermite differential equation:
 
 $ y'' - 2 x y' + 2 n y = 0 $ <Hermite>
 
-The solution to @Hermite can be derived through series expansion, and is given by:
+The solution @asmar2005partial to @Hermite can be derived through series expansion, and is given by:
 
 $ H_n (x) = n! sum_(j = 0)^M ((-1)^j (2x)^(n-2j))/(j! (n-2j)!) quad "where" M = cases( n / 2 "if" n "is even" \ (n+1) / 2 "if" n "is odd" ) $ <HermitePolynomial>
 
@@ -179,7 +179,7 @@ $ 1/(2m) [ (hbar / i dv(, x))^2 + (m omega x)^2 ] psi = E psi $ <TISESuggestive>
 
 == Ladder Operators
 
-Recall from Algebra 1, we have $u^2 + v^2 = (u + i v) (u - i v)$, we can consider:
+Recall from Algebra 1, we have $u^2 + v^2 = (u + i v) (u - i v)$, we can consider @griffiths2017introduction:
 
 $ a_plus.minus := 1 / sqrt(2m) (hbar / i dv(, x) plus.minus i m omega x) $
 
@@ -243,3 +243,5 @@ $ psi_n = A_n (a_+)^n exp(- (m omega) / (2 hbar) x^2 ) $
 The corresponding energy is:
 
 $ E_n = (1/2 + n) hbar omega $
+
+#bibliography("cite.bib")

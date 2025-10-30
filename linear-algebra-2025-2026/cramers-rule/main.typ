@@ -70,7 +70,7 @@ In this section, we're going to prove a way to determine whether a matrix is inv
 Recall definitions of determinant and matrix minors:
 
 #definition[
-  The matrix minor of a $n times n$ matrix $mat(A)$ is a $(n-1) times (n-1)$ matrix that remove the $i$th row and $j$th column of the matrix $mat(A)$, denoted as $mat(M)$. <matrix-minor>
+  The matrix minor of a $n times n$ matrix $mat(A)$ is a $(n-1) times (n-1)$ matrix that remove the $i$th row and $j$th column of the matrix $mat(A)$, denoted as $mat(M)_(i j)$. <matrix-minor>
 ]
 
 In this paper, whenever it's not ambiguous, I'll  directly use $mat(M)$ to denote the matrix minor of a matrix. When there's possible ambiguity, I'll use $mat(M)_mat(A)$ for minor of $mat(A)$.

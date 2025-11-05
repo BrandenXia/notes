@@ -299,7 +299,7 @@ Another quite intuitive proof was provided on the textbook. It felt neat to me s
     $
   ]
 
-  With the property of determinant, take determinant on both sides gives:
+  With the property of determinant, taking determinant on both sides gives:
   
   $
     det(mat(A) mat(X_j)) &= det(mat(B_j)) \

@@ -283,7 +283,7 @@ Another quite intuitive proof was provided on the textbook. It felt neat to me s
         #line(), #line(), #line(), , #line();;
         vec(v_1), vec(v_2), vec(v_3), ..., vec(v_n);
         #line(), #line(), #line(), , #line()
-      ) quad "where" v_k "are cols of" mat(A)
+      ) quad "where" vec(v_k) "are cols of" mat(A)
     $
   ]
 
@@ -306,9 +306,9 @@ Another quite intuitive proof was provided on the textbook. It felt neat to me s
     det mat(A) dot det mat(X_j) &= det mat(B_j) \
   $
 
-  Since the matrix minor after removing the $j$th column of $mat(X_j)$ just the identity matrix, its determinant $det mat(X_j) = x_j$:
+  Since the matrix minor after removing the $j$th column of $mat(X_j)$ just the identity matrix, its determinant $det mat(X_j) = vec(x)_j$:
   $
-    det mat(A) dot x_n &= det mat(B_j) \
-     x_n &= (det mat(B_j)) / (det mat(A) ) \
+    det mat(A) dot vec(x)_j &= det mat(B_j) \
+     vec(x)_j &= (det mat(B_j)) / (det mat(A) ) \
   $
 ]

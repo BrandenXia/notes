@@ -306,7 +306,7 @@ Another quite intuitive proof was provided on the textbook. It felt neat to me s
     det mat(A) dot det mat(X_j) &= det mat(B_j) \
   $
 
-  Since the matrix minor after removing the $j$th column of $mat(X_j)$ just the identity matrix, its determinant $det mat(X_j) = vec(x)_j$:
+  Since the matrix minor after removing the $j$th column of $mat(X_j)$ was just the identity matrix, its determinant $det mat(X_j) = vec(x)_j$:
   $
     det mat(A) dot vec(x)_j &= det mat(B_j) \
      vec(x)_j &= (det mat(B_j)) / (det mat(A) ) \

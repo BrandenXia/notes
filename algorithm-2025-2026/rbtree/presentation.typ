@@ -19,7 +19,7 @@
 
 #slide[
   == Why?
-  Consider the worse case scenario of BST insertion. If every new element $n_i$ is larger all previous elements $n_1, n_2, dots, n_( i-1 )$, then the tree will degenerate into a linked list with height $bb(O)(n)$.
+  Consider the worse case scenario of BST insertion. If every new element $n_i$ is larger all previous elements $n_1, n_2, dots.c, n_( i-1 )$, then the tree will degenerate into a linked list with height $bb(O)(n)$.
 
   #let nodes = ("1", "2", "3", "4", "5")
   #let edges = ((0, 1), (1, 2), (2, 3), (3, 4))

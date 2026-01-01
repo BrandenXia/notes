@@ -21,5 +21,5 @@ $
   pdv(z, u) & = pdv(z, x) * pdv(x, u) + pdv(z, y) * pdv(y, u) \
             & = pdvzx (pdvxu) + pdvzy pdvyu \
   pdv(z, v) & = pdv(z, x) * pdv(x, v) + pdv(z, y) * pdv(y, v) \
-            & = pdvzx (pdvxv) + pdvzy pdvyv \
+            & = pdvzx (pdvxv) + pdvzy (pdvyv) \
 $

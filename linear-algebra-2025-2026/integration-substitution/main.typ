@@ -281,3 +281,85 @@ Therefore, the PDE becomes:
 $
   pdv(psi, u_j) = pdv(, u_i) (g compose vb(phi))
 $
+
+== 2D Case
+
+Let's consider a specific example when $n = 2$, $i = 1$, and $j = 2$ to intuitively understand the solution.
+
+Now, the PDE becomes:
+
+$
+  pdv(psi, u_2) & = pdv(, u_1) (g(u_1, psi(u_1, u_2))) \
+  pdv(psi, u_2) & = pdv(g, x)(u_1, psi(u_1, u_2)) + pdv(g, y)(u_1, psi(u_1, u_2)) dot pdv(psi, u_1)
+$
+
+Its characteristic equations are given by:
+
+$
+  dd(u_2) / 1 = dd(u_1) / (- partial_y g(u_1, psi(u_1, u_2) ) ) = dd(psi) / (partial_x g(u_1, psi(u_1, u_2) ) )
+$
+
+Now we need a specific example of $g$. Consider the function:
+
+$ g(x, y) = x^2 + y^2 $
+
+Now, the characteristic equations become:
+
+$
+  dd(u_2) / 1 = dd(u_1) / (- 2 psi(u_1, u_2)) = dd(psi) / (2 u_1)
+$
+
+The second and third terms give us the following ODE:
+
+$
+  2 u_1 dd(u_1) = - 2 psi dd(psi)
+$
+
+Integrating both sides, we have:
+
+$
+  integral 2 u_1 dd(u_1) & = integral 2 psi dd(psi) \
+           u_1^2 + psi^2 & = C_1
+$
+
+Similarly, we can obtain:
+
+$ 2u_2 + arctan(u_1 / psi) = C_2 $
+
+Thus, the solution of the PDE is given by:
+
+$ G(u_1^2 + psi^2, 2u_2 + arctan(u_1 / psi)) = 0 $
+
+where $G$ is an arbitrary function with continuous first-order partial derivatives.
+
+Now, let $G(x, y) = x y$, this gives us:
+
+$ (u_1^2 + psi^2) dot (2u_2 + arctan(u_1 / psi)) = 0 $
+
+Notice that the first part in the product is always non-negative, and equals to zero only when both $u_1$ and $psi$ equal to zero. Therefore, assuming it's non-zero, we have:
+
+$
+  2u_2 + arctan(u_1 / psi) & = 0 \
+         arctan(u_1 / psi) & = -2u_2 \
+                 u_1 / psi & = -tan(2u_2) \
+                       psi & = -u_1 cot(2u_2) \
+         vb(phi)(u_1, u_2) & = lr(chevron.l u_1, -u_1 cot(2u_2) chevron.r)
+$
+
+To verify the solution, we can compute the determinant of its Jacobian:
+
+$
+  det bold(upright(J)_vb(phi)) (u_1, u_2) & = mdet(1, 0; -cot(2u_2), 2 u_1 csc^2(2 u_2)) = 2 u_1 csc^2(2 u_2)
+$
+
+And compute $g compose vb(phi)$:
+
+$
+  g compose vb(phi)(u_1, u_2) & = u_1^2 + (-u_1 cot(2u_2))^2 = u_1^2 csc^2(2u_2) \
+$
+
+Plugging them into the PDE, we have:
+
+$ pdv(, u_1) (g compose vb(phi))(u_1, u_2) = 2 u_1 csc^2(2u_2) = det bold(upright(J)_vb(phi))(u_1, u_2) $
+
+which confirms our solution.

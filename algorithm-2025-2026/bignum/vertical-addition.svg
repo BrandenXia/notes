@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 250 230">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000;
+        font-family: ArialMT, Arial;
+        font-size: 50px;
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 2.5px;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(86.1 80)"><tspan x="0" y="0">9</tspan></text>
+  <text class="cls-1" transform="translate(136.1 80)"><tspan x="0" y="0">6</tspan></text>
+  <text class="cls-1" transform="translate(186.1 80)"><tspan x="0" y="0">2</tspan></text>
+  <text class="cls-1" transform="translate(35.4 140)"><tspan x="0" y="0">+</tspan></text>
+  <text class="cls-1" transform="translate(136.1 140)"><tspan x="0" y="0">9</tspan></text>
+  <text class="cls-1" transform="translate(186.1 140)"><tspan x="0" y="0">3</tspan></text>
+  <line class="cls-2" x1="25" y1="170" x2="225" y2="170"/>
+  <text class="cls-1" transform="translate(36.1 218)"><tspan x="0" y="0">1</tspan></text>
+  <text class="cls-1" transform="translate(86.1 218)"><tspan x="0" y="0">0</tspan></text>
+  <text class="cls-1" transform="translate(136.1 218)"><tspan x="0" y="0">5</tspan></text>
+  <text class="cls-1" transform="translate(186.1 218)"><tspan x="0" y="0">5</tspan></text>
+</svg>

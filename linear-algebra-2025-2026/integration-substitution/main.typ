@@ -2,9 +2,10 @@
 #import "@preview/physica:0.9.8": *
 
 #let title = [Integration by Substitution with multiple variables]
+#let author = "Branden Xia"
 #set document(
   title: title,
-  author: "Branden Xia",
+  author: author,
 )
 
 #set text(font: "New Computer Modern", size: 13pt)
@@ -13,6 +14,27 @@
   paper: "us-letter",
   margin: (x: 0.85in, y: 1.2in),
   header-ascent: 37%,
+)
+
+#align(horizon)[
+  #text(size: 20pt)[*#title*]
+
+  #h(1fr)
+
+  #text(size: 15pt)[
+    #author
+
+    #datetime.today().display("[month repr:short] [day], [year]")
+
+    Linear Algebra 2025-2026
+  ]
+]
+
+#pagebreak()
+
+#counter(page).update(1)
+
+#set page(
   header: [
     #set text(size: 12pt)
     _ #title _
@@ -106,30 +128,6 @@ A $C^1$ transformation is defined by a function $vb(phi): U -> bb(R)^n$ where $U
 
 + The function $vb(phi)$ is injective on $U$, which means for any two distinct points $vb(u)_1, vb(u)_2$ in $U$, we have $vb(phi)(vb(u)_1) != vb(phi)(vb(u)_2)$.
 
-== Clairaut's Theorem <clairaut>
-
-#theorem[(Clairaut's Theorem)
-  Given a function $f: bb(R)^n -> bb(R)$ who has continuous second-order partial derivatives, we have:
-
-  $
-    pdv(, x_i, x_j) f(vb(x)) = pdv(, x_j, x_i) f(vb(x))
-  $
-]
-
-== Existence of Potential Function <existence-of-potential-function>
-
-#theorem[
-  Given two functions $P, Q: U -> bb(R)$ where $U$ is an open set in   $bb(R)^n$. If they satisfy the condition:
-
-  $ pdv(Q, x) = pdv(P, y) $
-
-  Then there exists a function $f: U -> bb(R)$ such that:
-
-  $ pdv(f, x) = P "and" pdv(f, y) = Q $
-
-  This can be derived from Clairaut's Theorem (@clairaut).
-]
-
 = Deriving the Formula
 
 Before working on the general case, let's consider some cases in lower dimensions.
@@ -198,7 +196,7 @@ The proof of this theorem follows the same idea as the 2D case, and can be prove
 
 Now let's apply the formula derived above to derive some interesting results.
 
-Given a function $f: bb(R) -> bb(R)$, whose anti-derivative $F$ is known, and another function $g: bb(R)^n -> bb(R)$, whose invertible with respect to at least one variable $u_j$. Let $D$ be an open set in $bb(R)^n$. Consider the following integral:
+Given a function $f: bb(R) -> bb(R)$, whose anti-derivative $F$ is known, and another function $g: bb(R)^n -> bb(R)$. Let $D$ be an open set in $bb(R)^n$. Consider the following integral:
 
 $ integral_D ( f compose g )(vb(v)) dd(vb(v)) $
 
@@ -223,7 +221,7 @@ $
   integral_D ( f compose g )(vb(v)) dd(vb(v)) = integral_U ( f compose g compose vb(phi) )(vb(u)) dot abs(det bold(upright(J)_vb(phi))(vb(u))) dd(vb(u))
 $
 
-Notice if we have a good choice of $vb(phi)$ with the following properties:
+Notice if we have a good choice of $vb(phi)$ with the following properties for a fixed $i in bb(N)$:
 
 $
   cases(
@@ -248,10 +246,10 @@ $
   abs(det bold(upright(J)_vb(phi))) = pdv(h, u_i) = pdv(, u_i) (g compose vb(phi))
 $
 
-At the first glance, this seems to be a complicated PDE. So let's add some more constraints:
+At the first glance, this seems to be a complicated PDE. Let's fix $j in bb(N)$:
 
 $
-  vb(phi)(vb(u)) = sum_(i != j) u_i vb(e_i) + psi(vb(u)) vb(e_j) "where" psi: U -> bb(R)
+  vb(phi)(vb(u)) = sum_(k != j) u_k vb(e_k) + psi(vb(u)) vb(e_j) "where" psi: U -> bb(R)
 $
 
 This means that the transformation only affects the $j$th dimension, while keeping other dimensions unchanged.
@@ -363,3 +361,26 @@ Plugging them into the PDE, we have:
 $ pdv(, u_1) (g compose vb(phi))(u_1, u_2) = 2 u_1 csc^2(2u_2) = det bold(upright(J)_vb(phi))(u_1, u_2) $
 
 which confirms our solution.
+
+== Conclusion
+
+Given a function $f: bb(R) -> bb(R)$, whose anti-derivative $F$ is known, and another function $g: bb(R)^n -> bb(R)$ where $n >= 2$. Let $D$ be an open set in $bb(R)^n$. For the following integral:
+
+$ integral_D ( f compose g )(vb(v)) dd(vb(v)) $
+
+We can choose $i, j in bb(N)$ and define a $C^1$ transformation $vb(phi): U -> D$ where $U$ is an open set in $bb(R)^n$:
+
+$
+  vb(phi)(vb(u)) = sum_(k != j) u_k vb(e_k) + psi(vb(u)) vb(e_j)
+$
+
+Through solving the following PDE:
+
+$ pdv(psi, u_j) = pdv(, u_i) (g compose vb(phi)) $
+
+We can find the function $psi$ that simplifies the integral:
+
+$
+  integral_D ( f compose g )(vb(v)) dd(vb(v)) & = integral_U ( f compose g compose vb(phi) )(vb(u)) dot abs(det bold(upright(J)_vb(phi))(vb(u))) dd(vb(u)) \
+  & = integral_(u_k, k != i) evaluated(F(h(u_i)))_("boundary of" u_i) dd(u_k) \
+$

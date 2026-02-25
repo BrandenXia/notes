@@ -1,8 +1,12 @@
 #import "@preview/tapestry:0.0.4": *
 
+#set page(
+  numbering: "1",
+)
+
 #show: tapestry.with(
   title: "Advance Physics: Electricity and Magnetism",
-  year: "2024-2025",
+  year: "2025-2026",
 )
 
 = Textbook
@@ -97,8 +101,61 @@ $
 - always true
   - only helpful for symmetric layouts - spherical, cylindrical, planar
 
-= Conductors & Insulators
+= Electrostatics IV - Conductors & Insulators
 
 - Conductors are materials where charges are free to flow
   The charges rearrange themselves in response to the presence of an external electric field. Inside a conductor, $va(E)_"net" = 0$.
 - Insulators are materials where charges cannot flow freely.
+
+= Electrostatics V - Electric Potential
+
+Recall the work done by a force $W = integral dd(va(x)) dot F$
+
+- conservative force $W$ is "path-independent" $=> integral.cont dd(va(x)) dot F = 0$
+  - conservative force *conserves* energy
+
+For conservative forces:
+
+$ va(F) = - grad va(U) $
+
+where $va(U)$ is the potential energy.
+
+We're interested in forces on arbitrary charges, $q$, $va(F) = q va(E)$
+
+We can write the electric field as the gradient of a scalar potential:
+
+$ va(E) = - grad V $
+
+where $V$ is the electric potential.
+
+$ U_"elec" = q V $
+
++ $V$ is the potential energy per unit charge
+  - it's the work needed per charge to move a test charge from a reference point (usually $infinity$) to a specific point in the field
+  - unit $[v] = J / C equiv 1 "volt"$
++ The electric potential as a contour map of the electric field
+  - We can define "equipotential surfaces" where the potential is constant
+  - The electric field points perpendicular to these equipotential surfaces, pointing from high to low
+
+Another nice property: the potential obeys the principle of superposition:
+
+$ V_"net" = sum_i V_i $
+
+== How do we compute the potential?
+
+$
+  V(va(r)) := - integral_O^va(r) dd(va(l)) dot va(E)(va(r)')
+$
+
+where $O$ is an agreed upon reference point where $V(O) = 0$. (Exception: doesn't work for infinite charge distributions)
+
+If we don't know $va(E)$, but do know the charge distribution:
+
+$
+    "pt. charges": & V = 1 / (4 pi epsilon_0) sum_i q_i / norm(va(r)_i) \
+  "charge distr.": & V = 1 / (4 pi epsilon_0) integral dd(q) / norm(va(r)) \
+$
+
+- line charge: $dd(q) = lambda dd(l)$
+- surface charge: $dd(q) = sigma dd(A)$
+- volume charge: $dd(q) = rho dd(tau)$

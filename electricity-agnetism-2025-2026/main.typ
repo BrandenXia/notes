@@ -159,3 +159,133 @@ $
 - line charge: $dd(q) = lambda dd(l)$
 - surface charge: $dd(q) = sigma dd(A)$
 - volume charge: $dd(q) = rho dd(tau)$
+
+= Circuits I - Ohm's Law
+
+$ abs(Delta V) = I R $
+
+- $abs(Delta V)$ - voltage
+- $I$ - current, charge / time
+- $R$ - resistance
+
+$
+  abs(Delta V) = E l \
+  E = abs(Delta V) / l \
+  v_D = a tau = F / m dot tau = (E e ) / m dot tau = (abs(Delta V) e) / (l m) tau \
+$
+
+Let $v_T$ be the thermal velocity of electrons, and $lambda$ be the "mean free path" - average distance objects travel before colliding, we have:
+
+$
+  tau & = lambda / v_T \
+  v_D & = (abs(Delta V) e) / (l m) lambda / v_T
+$
+
+The current $I$ is given by product of number of charges and $v_D$ for each charge:
+
+$
+  I & = n dot v_D \
+    & = N A dot e dot (abs(Delta V) e) / (l m) lambda / v_T \
+    & = abs(Delta V) ((e^2 N lambda) / (m v_T)) A / l
+$
+
+Comparing to Ohm's law, we can identify the resistance:
+
+$
+  abs(Delta V) = I R \
+  R = (m v_T) / (e^2 N lambda) l / A
+$
+
+Usually, we write the resistance in terms of area, length, and conductivity $sigma$:
+
+$
+  R = l / (sigma A)
+$
+
+Therefore, we can have $sigma$ defined as:
+
+$
+  sigma = (e^2 N lambda) / (m v_T)
+$
+
+As a result from Thermodynamics, we have:
+
+$
+  1 / 2 m v_T^2 & = 3 / 2 k_B T \
+            v_T & = sqrt((3 k_B T) / m) \
+              R & = sqrt(3 k_B T m) / (e^2 N lambda) l / A
+$
+
+which shows that the absolute temperature $T$ must be $0$ for the material to be superconducting.
+
+== Vocab Terms
+
+- Circuit: a closed loop consisting of circuit elements
+- Circuit element: anything that adds or removes energy from the circuit
+- Current: moving electric charge, $I = dv(q, t)$, measured in Amperes (A)
+- Wires: equipotential surfaces connecting circuit elements
+- Series circuit: only 1 path for charge to flow
+- Parallel circuit: multiple paths for charge to flow
+
+== Circuit Rules
+
++ Need $Delta V$ for charge to flow
++ Need a path for charge to flow
++ Around any closed loop, $Delta V = 0$ (Kirchhoff's loop rule, energy conservation)
++ At any junction, $I_"in" = I_"out"$ (Kirchhoff's junction rule, charge conservation)
++ Across any resistor, $Delta V = I R$ (Ohm's law)
+
+= Circuit Analysis
+
+Goal: Predict $Delta V$ across and $I$ through resistors.
+
+$->$ Crucial step: Can we "simplify" our model of a circuit?
+
+For resistors in series:
+
+$ R_"eq" = sum_n R_n $
+
+For resistors in parallel:
+
+$ 1/R_"eq" = sum_n 1/R_n $
+
+= Capacitors
+
+- Capacitors are circuit elements that stores energy in electric fields by letting charges accumulate on closely spaced plates.
+- Definition:
+  $ C = Q / V $
+  where $Q$ is charge stored on plates and $V$ is potential difference across plates.
+
+  Measured in Farads ($F$): $1 F = 1 C / V$.
+- Capacitors in series:
+  $ 1/C_"eq" = sum_n = 1/C_n $
+- Capacitors in parallel:
+  $ C_"eq" = sum_n C_n $
+
+= Time Dependence in Capacitors
+
+$
+              Q(t) & = C V(t) \
+  I(t) := dv(Q, t) & equiv dot(Q) = C dv(V, t)
+$
+
+This gives the analogous of Ohm's law for capacitors:
+
+#rect[
+  $ I = C dv(V, t) $
+]
+
+We can also get the inverse relationship:
+
+$
+            I(t) & = C dv(V, t) \
+           dd(V) & = 1/C I(t) dd(t) \
+  integral dd(V) & = integral 1/C I(t) dd(t) \
+     V(t) - V(0) & = 1/C integral I(t) dd(t) \
+$
+
+This gives the relationship between voltage and current for a capacitor:
+
+#rect[
+  $ V(t) & = V(0) + 1/C integral I(t) dd(t) $
+]

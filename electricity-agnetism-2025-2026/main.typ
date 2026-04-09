@@ -281,7 +281,7 @@ $
             I(t) & = C dv(V, t) \
            dd(V) & = 1/C I(t) dd(t) \
   integral dd(V) & = integral 1/C I(t) dd(t) \
-     V(t) - V(0) & = 1/C integral I(t) dd(t) \
+     V(t) - V(0) & = 1/C integral I(t) dd(t)
 $
 
 This gives the relationship between voltage and current for a capacitor:
@@ -289,3 +289,85 @@ This gives the relationship between voltage and current for a capacitor:
 #rect[
   $ V(t) & = V(0) + 1/C integral I(t) dd(t) $
 ]
+
+= RC Circuits
+
+How do we analyze circuits?
+
++ Combine resistors and capacitors into equivalent resistors and capacitors
++ Use KLR and KJR to write equations for $Delta V$ and $I$
++ Use $I-V$ relationships to turn these into diff. eq.s or algebraic eq.s
++ Do the math
+
+== Charging a Capacitor
+
+What do we expect to happen as time passes?
+
+$
+  Q(t) ":" "at" t = 0 "," Q & = 0 \
+  limits("lim")_(t -> oo) Q & = Q_"max" \
+$
+$
+  I(t) ":" "at" t = 0 "," I & = I_"max" \
+  limits("lim")_(t -> oo) I & = 0 \
+$
+$
+  V_R (t) ":" "at" t = 0 "," V_R & = 0 \
+     limits("lim")_(t -> oo) V_R & = 0 \
+$
+$
+  V_C (t) ":" "at" t = 0 "," V_C & = 0 \
+     limits("lim")_(t -> oo) V_C & = Delta V_B = V_"max"
+$
+
+We have the equation:
+
+$
+           Delta V_B - V_R - V_C & = 0 \
+         Delta V_B - I R - Q / C & = 0 \
+  Delta V_B - R dv(Q, t) - Q / C & = 0 \
+$
+
+After solving the diff. eq.s, we get:
+
+$ Q(t) = Delta V_B C (1 - e^(-t / (R C))) $
+
+We let $tau = R C$ the "time constant" of the circuit, and let $Q_"max" = Delta V_B C$, which gives:
+
+$ Q(t) = Q_"max" (1 - e^(-t \/ tau)) $
+
+Consequently, we have:
+
+$ I(t) = dv(Q, t) = Q_"max" / tau e^(-t \/ tau) = (Delta V C) / (R C) e^(-t \/ tau) = (Delta V) / R e^(-t \/ tau) $
+
+$ I(0) = I_0 = (Delta V_B) / R $
+
+and similarly:
+
+$
+  V_R (t) & = I(t) R = I_0 R e^(-t \/ tau) = Delta V_B e^(-t \/ tau) \
+  V_C (t) & = V(0) + 1/C integral_0^t dd(t') I(t') \
+          & = Delta V_B (1 - e^(-t \/ tau))
+$
+
+== Discharging a Capacitor
+
+$
+  Q(t) ":" "at" t = 0 "," Q & = Q_"max" \
+  limits("lim")_(t -> oo) Q & = 0 \
+$
+
+$
+  I(t) ":" "at" t = 0 "," I & = I_"max" \
+  limits("lim")_(t -> oo) I & = 0 \
+$
+
+$
+  V_R (t) ":" "at" t = 0 "," V_R & = V_"max" \
+     limits("lim")_(t -> oo) V_R & = 0 \
+$
+
+$
+  V_C (t) ":" "at" t = 0 "," V_C & = V_"max" \
+     limits("lim")_(t -> oo) V_C & = 0 \
+$

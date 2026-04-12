@@ -5,7 +5,7 @@
   year: "2024-2025",
 )
 
-#import "@preview/physica:0.9.5" : expval
+#import "@preview/physica:0.9.8": expval
 
 = Schrödinger Equation
 
@@ -30,9 +30,9 @@ $
       columns: (1fr, 1fr, 1fr),
       table.header[Observable][Operator][Operation],
       $x$, $hat(x)$, $ x dot psi(x, t) $,
-      $p$, $p$, $ - i hbar dot pdv(,x) psi(x, t) $,
+      $p$, $p$, $ - i hbar dot pdv(, x) psi(x, t) $,
       $E$, $hat(H)$, $ [1 / (2m) hat(p)^2 + V(x)] psi $,
-      $V(x)$, $hat(V)(x)$, $ V(x) psi $
+      $V(x)$, $hat(V)(x)$, $ V(x) psi $,
     )
   ]
 
@@ -77,11 +77,11 @@ $ E = E_0 e^(i / hbar (p x - E t)) $
 Applying the wave equation, we get:
 
 $
-  (pdv(, x, 2) - 1 / c^2 pdv(, t, 2)) E &= 0 \ 
-  - E_0 p^2 / hbar^2 e^(i / hbar (p x - E t)) + E_0 E^2 / (hbar^2 c^2) e^(i / hbar (p x - E t)) &= 0 \
-  -E_0 / hbar^2 e^(i / hbar (p x - E t)) (E^2 / c^2 - p^2) &= 0 \
-  E^2 / c^2 - p^2 &= 0 \
-  E^2 &= p^2 c^2
+                                                          (pdv(, x, 2) - 1 / c^2 pdv(, t, 2)) E & = 0 \
+  - E_0 p^2 / hbar^2 e^(i / hbar (p x - E t)) + E_0 E^2 / (hbar^2 c^2) e^(i / hbar (p x - E t)) & = 0 \
+                                       -E_0 / hbar^2 e^(i / hbar (p x - E t)) (E^2 / c^2 - p^2) & = 0 \
+                                                                                E^2 / c^2 - p^2 & = 0 \
+                                                                                            E^2 & = p^2 c^2
 $
 
 When modify wave equation to account for massive, relativistic objects, we have Klein-Gordon equation:
@@ -91,9 +91,9 @@ $ (pdv(, x, 2) - 1 / c^2 pdv(, t, 2) - (m^2 c^2) / hbar^2) psi = 0 $
 Plugging in electric field and swap $E -> psi$:
 
 $
-  (pdv(, x, 2) - 1 / c^2 pdv(, t, 2) - (m^2 c^2) / hbar^2) (psi_0 e^(i / hbar (p x - E t))) &= 0 \
-  - p^2 / hbar^2 psi + E^2 / (hbar^2 c^2) psi - (m^2 c^2) / hbar^2 psi &= 0 \
-  p^2c^2 + m^2 c^4 &= E^2
+  (pdv(, x, 2) - 1 / c^2 pdv(, t, 2) - (m^2 c^2) / hbar^2) (psi_0 e^(i / hbar (p x - E t))) & = 0 \
+                       - p^2 / hbar^2 psi + E^2 / (hbar^2 c^2) psi - (m^2 c^2) / hbar^2 psi & = 0 \
+                                                                           p^2c^2 + m^2 c^4 & = E^2
 $
 
 which is the relativistic energy-momentum relation.
@@ -101,17 +101,17 @@ which is the relativistic energy-momentum relation.
 Consider the non-relativistic limit $p^2 << m^2 c^2$:
 
 $
-  psi &= psi_0 exp(i / hbar [p x - (p^2 c^2 + m^2 c^4)^(1 / 2) t]) \
-  &= psi_0 exp(i / hbar [p x - m c^2 ( (p^2 c^2) / (m^2 c^4) + 1 )^(1/2) t]) \
-  &approx psi_0 exp(i / hbar [p x - m c^2 ( 1 / 2 (p^2 c^2) / (m^2 c^4) + 1) t]) "using" (1 + x)^n approx 1 + n x \
-  &= psi_0 exp(i / hbar [ p x - (p^2 / (2m) + m c^2) t ]) \
-  &= psi_0 exp(- i / hbar m c^2 t) exp(i / hbar (p x - cal(T) t)) \
-  &"where" cal(T) = p^2 / (2m) "(classical kinetic energy)"
+  psi & = psi_0 exp(i / hbar [p x - (p^2 c^2 + m^2 c^4)^(1 / 2) t]) \
+      & = psi_0 exp(i / hbar [p x - m c^2 ( (p^2 c^2) / (m^2 c^4) + 1 )^(1/2) t]) \
+      & approx psi_0 exp(i / hbar [p x - m c^2 ( 1 / 2 (p^2 c^2) / (m^2 c^4) + 1) t]) "using" (1 + x)^n approx 1 + n x \
+      & = psi_0 exp(i / hbar [ p x - (p^2 / (2m) + m c^2) t ]) \
+      & = psi_0 exp(- i / hbar m c^2 t) exp(i / hbar (p x - cal(T) t)) \
+      & "where" cal(T) = p^2 / (2m) "(classical kinetic energy)"
 $
 
 $
-  psi &= psi_0 exp(- i / hbar m c^2 t) phi \
-  "where" phi &= exp(i / hbar (p x - cal(T) t)) \
+          psi & = psi_0 exp(- i / hbar m c^2 t) phi \
+  "where" phi & = exp(i / hbar (p x - cal(T) t)) \
 $
 
 $
@@ -181,7 +181,7 @@ If we can measure 2 observable at the same time meaning 1 does not impact our ab
 
 $
   [hat(A), hat(B)] = hat(A) hat(B) - hat(B) hat(A) = cases(
-    = 0 "obs. are compatible" \
+    = 0 "obs. are compatible",
     != 0 "obs. are incompatible"
   )
 $
@@ -202,7 +202,7 @@ $ sigma_A^2 sigma_B^2 >= (1 / (2i) expval([hat(A), hat(B)]))^2 $
 
 = The Time Independent Schrödinger Equation
 
-We find $Psi(va(x),t)$ by specifying a potential of $V(va(x))$ by solving the Schrödinger Equation:
+We find $Psi(va(x), t)$ by specifying a potential of $V(va(x))$ by solving the Schrödinger Equation:
 
 How do we solve PDEs? Separation of variables.
 
@@ -215,8 +215,8 @@ $
 Substituting into the Schrödinger Equation:
 
 $
-  - hbar^2 / (2m) dv(psi, x, 2) psi + V(x) psi phi &=  i hbar psi dv(phi, t) \
-  - hbar ^2 / (2m) dot 1 / psi + V(x) &= i hbar 1 / psi dv(phi, t) \
+  - hbar^2 / (2m) dv(psi, x, 2) psi + V(x) psi phi & = i hbar psi dv(phi, t) \
+                - hbar^2 / (2m) dot 1 / psi + V(x) & = i hbar 1 / psi dv(phi, t) \
 $
 
 Can only be true if both sides are equal to a constant $E$:
@@ -224,14 +224,14 @@ Can only be true if both sides are equal to a constant $E$:
 $ - hbar^2 / (2m) 1 / psi(x) dot dv(psi, x, 2) + V(x) = E $
 
 #rect[
-  $ - hbar^2 / (2m) dv(psi, x, 2) + V(x) psi(x) &= E psi(x) $
+  $ - hbar^2 / (2m) dv(psi, x, 2) + V(x) psi(x) & = E psi(x) $
 ]
 
 which is the time-independent Schrödinger equation.
 
 $
-  i hbar dv(phi, t) &= E phi(t) quad "since" 1 / i = -i \
-  dv(phi, t) &= - i E / hbar phi(t) arrow phi(t) = exp(- i E t / hbar)
+  i hbar dv(phi, t) & = E phi(t) quad "since" 1 / i = -i \
+         dv(phi, t) & = - i E / hbar phi(t) arrow phi(t) = exp(- i E t / hbar)
 $
 
 General solutions to S.E take the form:
@@ -241,31 +241,31 @@ $
 $
 
 + Separable solutions are "stationary states"
-  $ abs(Psi(x, t))^2 = Psi^*(x,t) Psi(x,t) = abs(psi(x))^2 $
+  $ abs(Psi(x, t))^2 = Psi^*(x,t) Psi(x, t) = abs(psi(x))^2 $
   $
-    expval(hat(Q)(x, p)) &= integral_(-oo)^oo dd(x) Psi^*(x,t) hat(Q)(x, pdv(, x)) Psi(x,t) \
-    &= integral_(-oo)^oo dd(x) psi^*(x) hat(Q) psi(x) \
+    expval(hat(Q)(x, p)) & = integral_(-oo)^oo dd(x) Psi^*(x,t) hat(Q)(x, pdv(, x)) Psi(x, t) \
+                         & = integral_(-oo)^oo dd(x) psi^*(x) hat(Q) psi(x) \
   $
 + These are states of definite energy \
   in Q.M., the total energy is given by the "Hamiltonian": $H = p^2 / (2m) + V(x)$
   $ hat(H) = - hbar^2 / (2m) pdv(, x, 2) + V(x) arrow hat(H) psi(x) = E psi(x) $
   $
-    expval(hat(H)) &= integral_(-oo)^oo dd(x) psi^*(x) (hat(H) psi(x)) \
-    &= E integral_(-oo)^oo dd(x) psi^*(x) psi(x) = E \
-    expval(hat(H)^2) &= integral_(-oo)^oo dd(x) psi^*(x) [ hat(H)(hat(H) psi(x)) ] = E^2 \
-    sigma_hat(H)^2 &= expval(hat(H)^2) - expval(hat(H))^2 = 0
+      expval(hat(H)) & = integral_(-oo)^oo dd(x) psi^*(x) (hat(H) psi(x)) \
+                     & = E integral_(-oo)^oo dd(x) psi^*(x) psi(x) = E \
+    expval(hat(H)^2) & = integral_(-oo)^oo dd(x) psi^*(x) [ hat(H)(hat(H) psi(x)) ] = E^2 \
+      sigma_hat(H)^2 & = expval(hat(H)^2) - expval(hat(H))^2 = 0
   $
 
 + We'll find that T.I.S.E permits an $oo$ number of solutions, each with a different energy $E_n$. \
   We can write the general solutions to the S.E for any potential V(x) as the "superposition" / linear combination of separable states.
-  $ Psi(x, t) = sum_(n = 1)^oo c_n psi_n (x) exp( - i E_n t / hbar) $
+  $ Psi(x, t) = sum_(n = 1)^oo c_n psi_n (x) exp(- i E_n t / hbar) $
   We'll find that the coefficients $c_n$ by looking at the boundary conditions.
 
 = Infinite Square Well
 
 $
   V(x) = cases(
-    0 quad "if" 0 <= x <= a \
+    0 quad "if" 0 <= x <= a,
     oo quad "otherwise"
   )
 $
@@ -288,7 +288,7 @@ Boundary conditions:
 + $dv(psi, x)$ is continuous
 
 $ psi(x=0) = A sin(0) + B cos(0) = 0 => B = 0 $
-$ psi(x=a) = A sin(k a) => sin(k a)  $
+$ psi(x=a) = A sin(k a) => sin(k a) $
 
 Distinct solutions:
 
@@ -305,20 +305,26 @@ $n != 1$: "excited states"
 == Important properties of ${psi_n (x)}$
 
 + They're mutually orthogonal
-  $ integral_0^a dd(x) psi_n^* (x) psi_m (x) = cases(
-    0 quad "if" n != m \
-    1 quad "if" n = m
-  ) $
+  $
+    integral_0^a dd(x) psi_n^* (x) psi_m (x) = cases(
+      0 quad "if" n != m,
+      1 quad "if" n = m
+    )
+  $
 + They're "complete":
-  $ f(x) = sum_(n = 1)^oo c_n psi_n (x) = sqrt(2 / a) sum_(n = 1)^oo c_n sin( (n pi) / a x) $
+  $ f(x) = sum_(n = 1)^oo c_n psi_n (x) = sqrt(2 / a) sum_(n = 1)^oo c_n sin((n pi) / a x) $
   $ Psi(x, t) = sum_(n=1)^oo c_n psi_n (x) exp(- (i E_n t) / hbar) $
-  $ integral dd(x) psi_m^* (x) Psi(x, 0) = sum_(n=1)^oo c_n integral dd(x) psi_m^* (x) psi_n (x) = sum_(n=1)^oo c_n delta_(m n) = c_m $
-  $ "where" delta_(m n) = cases(
-    0 quad "if" m != n \
-    1 quad "if" m = n
-  ) $
+  $
+    integral dd(x) psi_m^* (x) Psi(x, 0) = sum_(n=1)^oo c_n integral dd(x) psi_m^* (x) psi_n (x) = sum_(n=1)^oo c_n delta_(m n) = c_m
+  $
+  $
+    "where" delta_(m n) = cases(
+      0 quad "if" m != n,
+      1 quad "if" m = n
+    )
+  $
   For the infinite square well:
-  $ Psi(x, t) = sqrt(2 / a) sum_(n=1)^oo c_n sin((n pi) / a x) exp( - (i n^2 pi^2 hbar t) / (2 m a^2) ) $
+  $ Psi(x, t) = sqrt(2 / a) sum_(n=1)^oo c_n sin((n pi) / a x) exp(- (i n^2 pi^2 hbar t) / (2 m a^2)) $
   $ c_n = integral dd(x) psi_n^* (x) Psi(x, 0) $
 
 == Interpretation of $c_n$

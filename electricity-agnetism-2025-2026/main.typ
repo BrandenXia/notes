@@ -371,3 +371,44 @@ $
   V_C (t) ":" "at" t = 0 "," V_C & = V_"max" \
      limits("lim")_(t -> oo) V_C & = 0 \
 $
+
+= Intro to Magnetostatics
+
+- We know magnets have north and south poles (analogous to (+) and (-) charges)
+  - like poles repel, opposite poles attract
+- Weird because we always have north and south poles together
+  - there are no magnetic monopoles
+
+== "Gauss's Law for Magnetism":
+
+$ integral.surf dd(va(A)) dot va(B) = 0 $
+
+- $va(B)$ denotes the magnetic field
+- magnetic field is measured in Tesla ($T$): $1 T = 1 N / (C m/s)$
+
+Particles feel forces from magnetic fields
+
+$ va(F)_va(B) = q va(v) times va(B) $
+
+- $va(v)$ - velocity of the charge
+- magnitude:
+  $ norm(va(F)_va(B)) = q norm(va(v))norm(va(B)) sin theta_(va(v) va(B)) $
+
+== Right Hand Rule
+
+We can determine the direction of the force using the right hand rule:
+
+- pointer finger in direction of $va(v)$
+- middle finger in direction of $va(B)$
+- thumb points in direction of $va(F)$
+
+Notation for in/out of page:
+
+- $dot.o ->$ out of the page
+- $times.o ->$ into the page
+
+== Lorentz Force Law
+
+$ va(F) = q(va(E) + va(v) times va(B)) $
+
+Lorentz force law combines the electric and magnetic forces on a charge. It's a generalization of Coulomb's law (for electric field) and the magnetic force law (for magnetic field).

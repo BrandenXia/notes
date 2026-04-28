@@ -412,3 +412,27 @@ Notation for in/out of page:
 $ va(F) = q(va(E) + va(v) times va(B)) $
 
 Lorentz force law combines the electric and magnetic forces on a charge. It's a generalization of Coulomb's law (for electric field) and the magnetic force law (for magnetic field).
+
+= Magnetostatics II - Biot-Savart Law
+
+- Moving charges react to $va(B)$ fields
+- Moving charges also create $va(B)$ fields
+- Look at the $va(B)$ field from steady currents ($I(t) = I_0$)
+
+The Biot-Savart Law is an empirical law that lets us find $va(B)$ at any distance away from a wire carrying a steady current:
+
+$ dd(va(B)) = mu_0 / (4 pi) ( I dd(va(l)) times hat(r) )/ r^2 $
+
+- $mu_0$ - "permeability of free space", how easily $va(B)$ fields can move through space
+  - $mu_0 approx 4 pi times 10^(-7) N / A^2$
+
+- $dd(va(l))$ - differential length element of the wire, points in direction of current
+
+- $r$ - distance from $dd(va(l))$ to the point of interest
+
+- $hat(r)$ - unit vector pointing from $dd(va(l))$ to the point of interest
+
+Strategy:
++ Use RHR to determine direction of $dd(va(B)) =>$ focus on just the mag. of $dd(va(B))$
++ Clearly define $dd(va(l))$, $r$, $hat(r)$
++ Pray for an easy integral

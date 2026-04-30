@@ -503,3 +503,22 @@ AL is always true, but only sometimes useful. Looking for symmetric current dist
 + Calculate $integral.cont va(B) dot dd(va(l))$
 
 + Solve for $va(B)$
+
+= Summary
+
+#rect[
+  For Magnetostatics:
+
+  #grid(
+    columns: (auto, auto),
+    $ integral.cont dd(va(l)) dot va(B) = mu_0 I_"encl" $, $ integral.surf dd(va(A)) dot va(B) = 0 $,
+  )
+
+  For Electrostatics:
+
+  #grid(
+    columns: (auto, auto),
+    $ integral.cont dd(va(l)) dot va(E) = 0 $, $ integral.surf dd(va(A)) dot va(E) = Q_"encl" / epsilon_0 $,
+  )
+
+]

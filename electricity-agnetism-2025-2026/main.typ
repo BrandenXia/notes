@@ -436,3 +436,70 @@ Strategy:
 + Use RHR to determine direction of $dd(va(B)) =>$ focus on just the mag. of $dd(va(B))$
 + Clearly define $dd(va(l))$, $r$, $hat(r)$
 + Pray for an easy integral
+
+= Magnetostatics III - Ampère's Law
+
+Before we generalize BSL, let's first generalize our notion of current:
+
+- $va(I)$ - linear current
+
+- $va(K)$ - surface current density
+
+- $va(J)$ - volume current density
+
+$ sum_i q_i v_i ~ integral_"line" dd(l) va(I) ~ integral_"surface" dd(A) va(K) ~ integral_"volume" dd(V) va(J) $
+
+We found that $va(B)$-fields wrap around wires, and, for infinite straight wires, we have:
+
+$ va(B)(s) = (mu_0 I) / (2 pi s) space hat(phi) $
+
+If we integrate $va(B)$ around the circular path of radius $s$:
+
+$
+  integral.cont dd(va(l)) dot va(B) = integral.cont (mu_0 I) / (2 pi s) dd(l) = (mu_0 I) / (2 pi s) integral.cont dd(l) = mu_0 I
+$
+
+In cylindrical coordinates, we can write:
+
+$ dd(va(l)) = dd(s) hat(s) + s dd(phi) hat(phi) + dd(z) hat(z) $
+
+Thus, we have:
+
+$ integral.cont dd(va(l)) dot va(B) = integral.cont s dd(phi) dot va(B) = mu_0 I $
+
+The path we take can be arbitrary. Therefore, we have Ampère's Law:
+
+#rect[
+  $ integral.cont_C dd(va(l)) dot va(B) = mu_0 I $
+]
+
+If we have a bundle of straight wires, each contributing $mu_0 I$:
+
+#rect[
+  $ integral.cont_C dd(va(l)) dot va(B) = mu_0 I_"encl" $
+  where:
+  $ I_"encl" = integral.double_S dd(A) dot va(J) quad "where" C = partial S $
+]
+
+Our "derivation" assumed straight wires with infinite length, but Ampère's law holds for any wire with a steady current.
+
+AL is always true, but only sometimes useful. Looking for symmetric current distributions:
+
+- Infinite long wire
+- Infinite plane of current
+- Infinite solenoid ($l >> r$)
+- Toroid
+
+== AL Strategy:
+
++ Identify the symmetry. If not, BSL
+
++ Determine the direction of $va(B)$ using RHR
+
++ Choose a loop (circle, rectangle, etc.) over wires
+
++ Calculate $I_"encl"$
+
++ Calculate $integral.cont va(B) dot dd(va(l))$
+
++ Solve for $va(B)$

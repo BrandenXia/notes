@@ -522,3 +522,28 @@ AL is always true, but only sometimes useful. Looking for symmetric current dist
   )
 
 ]
+
+= Electrodynamics I - Faraday's Law
+
+1831 - Michael Faraday conducted 3 experiments:
++ Poll a loop through an external $va(B)$ field - induced some current
++ Move a magnet to stationary loop - induced some current
++ Leave loop and magnet stationary, but make $va(B)$ stronger - induced some current
+
+Faraday's Law: A changing magnetic field induces an electric field.
+
+$ cal(E) = integral.cont_C dd(va(l)) dot va(E) = - dv(Phi_B, l) $
+
+- $cal(E)$ - "electromotive force", "emf" (this is just a voltage)
+- $C$ - any arbitrary closed loop
+- $Phi_B$ - the magnetic flux through the loop
+  $ Phi_B = integral.double_S dd(va(A)) dot va(B) $
+
+Lenz's Law: Nature abhors a change in flux.
+
+When $Phi_B$ through a closed loop changes, nature induced a current to create a magnetic field to counteract that change in flux.
+
+== Faraday's Law Problem Solving Strategy
+
++ $abs(cal(E))$ for Faraday's Law
++ Direction of current from Lenz's Law

@@ -532,7 +532,7 @@ AL is always true, but only sometimes useful. Looking for symmetric current dist
 
 Faraday's Law: A changing magnetic field induces an electric field.
 
-$ cal(E) = integral.cont_C dd(va(l)) dot va(E) = - dv(Phi_B, l) $
+$ cal(E) = integral.cont_C dd(va(l)) dot va(E) = - dv(Phi_B, t) $
 
 - $cal(E)$ - "electromotive force", "emf" (this is just a voltage)
 - $C$ - any arbitrary closed loop

@@ -24,7 +24,7 @@ jobs:
         with:
           working-directory: ./notes
       - name: Restore build cache
-        id: cache
+        id: cache-restore
         uses: actions/cache/restore@v5
         with:
           path: .build-cache.tar.gz
@@ -32,10 +32,13 @@ jobs:
           restore-keys: |
             notes-build-cache-
       - name: Extract cache
-        if: steps.cache.outputs.cache-hit == 'true'
         run: |
-          tar -xzf .build-cache.tar.gz
-          echo "Cache extracted"
+          if [ -f .build-cache.tar.gz ]; then
+            tar -xzf .build-cache.tar.gz
+            echo "Cache extracted"
+          else
+            echo "No cache found"
+          fi
       - uses: oven-sh/setup-bun@v2
       - uses: typst-community/setup-typst@v5
       - name: Build

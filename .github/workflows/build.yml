@@ -12,19 +12,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           repository: BrandenXia/n2web
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           path: ./notes
           fetch-depth: 0
       - name: Restore timestamps
         uses: chetan/git-restore-mtime-action@v2
         with:
-          working_directory: ./notes
+          working-directory: ./notes
       - name: Restore build cache
-        id: cache-restore
+        id: cache
         uses: actions/cache/restore@v5
         with:
           path: .build-cache.tar.gz
@@ -32,7 +32,7 @@ jobs:
           restore-keys: |
             notes-build-cache-
       - name: Extract cache
-        if: steps.cache-restore.outputs.cache-hit == 'true'
+        if: steps.cache.outputs.cache-hit == 'true'
         run: |
           tar -xzf .build-cache.tar.gz
           echo "Cache extracted"

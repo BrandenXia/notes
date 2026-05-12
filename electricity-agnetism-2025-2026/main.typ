@@ -547,3 +547,69 @@ When $Phi_B$ through a closed loop changes, nature induced a current to create a
 
 + $abs(cal(E))$ for Faraday's Law
 + Direction of current from Lenz's Law
+
+= Electrodynamics II - Ampère-Maxwell Law + Maxwell's Equations
+
+Ampère's Law is not always with the static charge. We can correct it with it by adding a term for the "displacement current":
+
+Traditional derivation considers a capacitor with a changing electric field between the plates.
+
+$
+  integral.cont_C dd(va(l)) dot va(B) = mu_0 I_"encl" + mu_0 epsilon_0 pdv(Phi_E, t)
+$
+
+$
+  integral.surf_S dd(va(A)) dot va(E) = Q_"encl" / epsilon_0 = integral.triple_V dd(V) (div va(E)) &=> div va(E) = Q / epsilon_0 \
+  integral.surf_S dd(va(A)) dot va(B) = 0 = integral.triple_V dd(V) (div va(B)) &=> div va(B) = 0 \
+  integral.cont_C dd(va(l)) dot va(E) = - dv(Psi_B, t) = integral.double_A dd(va(A)) dot (curl va(E)) &=> curl va(E) = - dv(va(B), t) \
+  integral.cont_C dd(va(l)) dot va(B) = mu_0 integral.double_S dd(va(A)) dot va(J) &=> curl va(B) = mu_0 va(J) + mu_0 epsilon_0 dv(va(E), t)
+$
+
+Continuity equation: The amount of electric charge in any volume in space can only change by the amount of current flowing through its boundary:
+
+$ div va(J) = - pdv(rho, t) $
+
+== Modern Derivation of Ampère-Maxwell Law
+
+$ 0 = div (curl va(B)) = mu_0 div va(J) != 0 $
+
+We get a conflict here. Therefore, we consider adding another term be be consistent with $div (curl va(F)) = 0$:
+
+$ div va(J) = - pdv(rho, t) = - epsilon_0 pdv(, t) (div va(E)) = - div (epsilon_0 pdv(va(E), t)) $
+
+which gives us:
+
+$ curl va(B) = mu_0 va(J) + mu_0 epsilon_0 pdv(va(E), t) $
+
+= Conclusion
+
+== Maxwell's Equations
+
+Integral form:
+
+#rect[
+  #grid(
+    columns: (auto, auto),
+    $ integral.surf dd(va(A)) dot va(E) = Q_"encl" / epsilon_0 $,
+    $ integral.cont dd(va(l)) dot va(B) = mu_0 I_"encl" + mu_0 epsilon_0 pdv(Phi_E, t) $,
+
+    $ integral.surf dd(va(A)) dot va(B) = 0 $, $ integral.cont dd(va(l)) dot va(E) = - dv(Phi_B, t) $,
+  )
+]
+
+Lorentz force law:
+
+#rect[
+  $ va(F) = q(va(E) + va(v) times va(B)) $
+]
+
+Differential form:
+
+#rect[
+  $
+     div va(E) & = rho / epsilon_0 \
+    curl va(B) & = mu_0 va(J) + mu_0 epsilon_0 pdv(va(E), t) \
+    curl va(E) & = - pdv(va(B), t) \
+     div va(B) & = 0
+  $
+]

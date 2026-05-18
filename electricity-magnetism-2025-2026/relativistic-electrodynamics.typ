@@ -577,3 +577,5 @@ Show[
  Boxed -> False
  ]
 ```
+
+#bibliography("citation.bib", style: "american-physics-society", full: true)

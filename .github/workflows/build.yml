@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           repository: BrandenXia/n2web
+          ref: github-pages
       - uses: actions/checkout@v6
         with:
           path: ./notes

@@ -246,6 +246,7 @@
     Therefore,
 
     $ angle(T u, T v) = (lambda^2 iprod(u, v)) / (lambda^2 abs(u) abs(v)) = angle(u, v) $
+
     which proves that the transformation is angle preserving.
   ]
 ]

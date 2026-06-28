@@ -1,5 +1,5 @@
 #import "@preview/tapestry:0.0.4": *
-#import "@preview/physica:0.9.8": iprod
+#import "@preview/physica:0.9.8": iprod, rot2mat
 
 #set page(
   numbering: "1",
@@ -42,6 +42,8 @@
 
 = Functions on Euclidean Space
 
+== Norm and Inner Product
+
 #theorem[1-1 (1)][
   If $x in RR^n$, $abs(x) >= 0$, and $abs(x) = 0$ iff $x = 0$.
 
@@ -73,7 +75,7 @@
   Prove that $abs(x) <= sum_(i=1)^n abs(x^i)$.
 
   #proof[
-    Since the function $x |-> x^2$ is increasing, it suffice to prove that $abs(x)^2 <= (sum_(i=1)^n abs(x^i))^2$. We have:
+    Since the function $x |-> x^2$ is increasing, it suffices to prove that $abs(x)^2 <= (sum_(i=1)^n abs(x^i))^2$. We have:
 
     $
       abs(x)^2 = sum_(i=1)^n (x^i)^2 <= sum_(i=1)^n (x^i)^2 + 2 sum_(1 <= i < j <= n) abs(x^i) abs(x^j) = (sum_(i=1)^n abs(x^i))^2
@@ -106,7 +108,7 @@
   Prove that $abs(x - y) <= abs(x) + abs(y)$. When does the equality hold?
 
   #proof[
-    Notice that it suffice to prove that $abs(x - y)^2 <= (abs(x) + abs(y))^2$. We have:
+    Notice that it suffices to prove that $abs(x - y)^2 <= (abs(x) + abs(y))^2$. We have:
 
     $
       abs(x - y)^2 & = sum_(i=1)^n (x^i - y^i)^2 \
@@ -124,7 +126,7 @@
   Prove that $abs(abs(x) - abs(y)) <= abs(x - y)$.
 
   #proof[
-    It suffice to prove that $(abs(x) - abs(y))^2 <= abs(x - y)^2$, which is given by:
+    It suffices to prove that $(abs(x) - abs(y))^2 <= abs(x - y)^2$, which is given by:
 
     $
       (abs(x) - abs(y))^2 & = abs(x)^2 + abs(y)^2 - 2abs(x)abs(y) \
@@ -248,5 +250,76 @@
     $ angle(T u, T v) = (lambda^2 iprod(u, v)) / (lambda^2 abs(u) abs(v)) = angle(u, v) $
 
     which proves that the transformation is angle preserving.
+
+    The third part asks about all the angle preserving linear transformations. They are always compositions of rotation, reflection, and scaling. This can be proven by writing $T = c Q$, where $c > 0$ is the scaling factor and $Q$ is an orthogonal matrix.
+  ]
+]
+
+#problem[1-9][
+  If $0 <= theta < pi$, let $T: RR^2 -> RR^2$ have the matrix
+  $ mat(&cos theta, sin theta; -&sin theta, cos theta) $
+  Show that $T$ is angle preserving, and if $x != 0$, $angle(x, T x) = theta$.
+
+  #proof[
+    Notice that $T$ is a rotation matrix with angle $-theta$, which is:
+
+    $ rot2mat(-&theta) = mat(&cos theta, sin theta; -&sin theta, cos theta) = T $
+
+    Therefore, it's obviously angle preserving, and the angle between $x$ and $T x$ is exactly $theta$.
+  ]
+]
+
+#problem[1-10][
+  If $T: RR^m -> RR^n$ is a linear transformation, show that there is a number $M$ such that $abs(T(h)) <= M abs(h)$ for $h in RR^m$.
+
+  #proof[
+    Consider ${e_i}_(i=1)^m$, the set of standard basis in $RR^m$. Define $M$ as:
+
+    $ M = max_(1<=i<=m) abs(T(e_i)) $
+
+    Now we'd like to show that the inequality holds for all $h$. Note that $h$ can always be written as $h = sum_(i=1)^m h^i e_i$. Therefore, we have:
+
+    $
+      abs(T(h)) = abs(T(sum_(i=1)^m h^i e_i)) & = abs(sum_(i=1)^m h^i T(e_i)) & <= M abs(sum_(i=1)^m h^i e_i) = M abs(h)
+    $
+  ]
+]
+
+#problem[1-11][
+  If $x, y in RR^n$ and $z, w in RR^m$, show that $iprod((x, z), (y, w)) = iprod(x, y) + iprod(z, w)$ and $abs((x, z)) = sqrt(abs(x)^2 + abs(z)^2)$.
+
+  #proof[
+    $ iprod((x, z), (y, w)) = sum_(i=1)^n x^i y^i + sum_(i=1)^m z^i w^i = iprod(x, y) + iprod(z, w) $
+    and
+    $ abs((x, z)) = sqrt(sum_(i=0)^n x^i + sum_(i=0)^m z^i) = sqrt(abs(x)^2 + abs(z)^2) $
+  ]
+]
+
+#problem[1-12][
+  Let $(RR^n)^*$ denote the dual space of the vector space $RR^n$. If $x in RR^n$, define $phi_x in (RR^n)^*$ by $phi_x (y) = iprod(x, y)$. Define $T: RR^n -> (RR^n)^*$ by $T(x) = phi_x$. Show that $T$ is a one-to-one linear transformation and conclude that every $phi in (RR^n)^*$ is $phi_x$ for a unique $x in RR^n$.
+
+  #proof[
+    First, we can see that $T$ is linear due to bilinearity of inner product:
+
+    $ T(alpha x + beta y) = phi_(alpha x + beta y) = alpha phi_x + beta phi_y = alpha T(x)+ beta T(y) $
+
+    For the sake of contradiction, suppose there exists $x, y in RR^n$ so that $x != y$ and $T(x) = T(y)$. By definition, we have $phi_x = phi_y$, which is that $phi_x (z) = phi_y (z)$ for all $z in RR^n$. Thus, we have:
+
+    $ forall z in RR^n, iprod(x, z) = iprod(y, z) $
+
+    By choosing $z = e_i$, we can easily obtain that $x^i = y^i$ for all $1 <= i <= n$. This is equivalent to $x =y$, which contradict with our assumption. Thus, $T$ is one-to-one.
+  ]
+]
+
+#problem[1-13][
+  If $x, y in RR^n$, then $x$ and $y$ are called *perpendicular* (or *orthogonal*) if $iprod(x, y) = 0$. If $x$ and $y$ are perpendicular, prove that $abs(x + y)^2 = abs(x)^2 + abs(y)^2$.
+
+  #proof[
+    $
+      abs(x + y)^2 & = sum_(i=1)^n (x^i + y^i)^2 \
+                   & = sum_(i=1)^n (x^i)^2 + sum_(i=1)^n (y^i)^2 + 2 sum_(i=1)^n x^i y^i \
+                   & = abs(x)^2 + abs(y)^2 + 2 iprod(x, y) \
+                   & = abs(x)^2 + abs(y)^2
+    $
   ]
 ]

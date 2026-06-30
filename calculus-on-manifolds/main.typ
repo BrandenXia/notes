@@ -285,7 +285,7 @@
       abs(T(h)) = abs(T(sum_(i=1)^m h^i e_i)) & = abs(sum_(i=1)^m h^i T(e_i)) & <= M abs(sum_(i=1)^m h^i e_i) = M abs(h)
     $
   ]
-] <problem-1-10>
+]
 
 #problem[1-11][
   If $x, y in RR^n$ and $z, w in RR^m$, show that $iprod((x, z), (y, w)) = iprod(x, y) + iprod(z, w)$ and $abs((x, z)) = sqrt(abs(x)^2 + abs(z)^2)$.

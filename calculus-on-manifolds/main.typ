@@ -20,6 +20,7 @@
   ]
 ]
 #let theorem(label, body) = titled(body, "Theorem", label)
+#let corollary(label, body) = titled(body, "Corollary", label)
 #let problem(label, body) = {
   set enum(numbering: "(a)", indent: 1em)
   titled(body, "Problem", label)
@@ -822,4 +823,141 @@
 
     The problem now becomes the exact same problem as (a) with $f^((n - 1))$ and $f^((n))$ instead of $f$ and $f'$. Therefore, we can apply the same argument to show that the limit is $0$, which proves that $f$ and $g$ are equal up to $n$th order at $a$.
   ]
+]
+
+== Basic Theorems
+
+#corollary[2-4][
+  If $f, g: RR^n -> RR$ are differentiable at $a$, then
+
+  $
+    & D(f + g)(a) = D f(a) + D g(a) \
+    & D(f dot g)(a) = g(a) D f(a) + f(a) D g(a)
+  $
+
+  If, moreover, $g(a) != 0$, then
+
+  $ D(f \/ g)(a) = (g(a) D f(a) - f(a) D g(a)) / [g(a)]^2 $
+
+  The first equation is already proven in the book. We'll prove the others.
+
+  #proof[
+    $p(x, y) = x dot y$ is proved to be differentiable in *Theorem 2-3*. Since $f dot g = p compose (f, g)$, we have
+
+    $
+      D(f dot g)(a) & = D(p(f(a), g(a))) compose D(f, g)(a) \
+                    & = (g(a) x + f(a) y) compose (D f(a), D g(a)) \
+                    & = g(a) D f(a) + f(a) D g(a)
+    $
+
+    $f \/ g$ is a little more tricky. Let $h(x, y) = x \/ y$. Then, we want to prove that
+
+    $ D h(a, b)(x, y) = (b x - a y) / b^2 $
+
+    To start, let $lambda(x, y) = (b x - a y) \/ b^2$. Then,
+
+    $ lim_((t, s) -> (0, 0)) abs(h(a + t, b + s) - h(a, b) - lambda(t, s)) / abs((t, s)) $
+
+    With some algebra, we can simply the limit to
+
+    $ abs(s) / abs((t, s)) abs(b t - a s) / abs(b^2 (b + s)) $
+
+    The first term is bounded by $1$ and the second term approaches $0$ in the limit. Therefore, the limit is $0$ and $h$ is differentiable at $(a, b)$. Then, we can obtain the result with similar argument as the product rule.
+  ]
+]
+
+#problem[2-10][
+  Use the theorems of this section to find $f'$ for the following:
+  + $f(x, y, z) = x^y$
+  + $f(x, y, z) = (x^y, z)$
+  + $f(x, y) = sin(x sin y)$
+  + $f(x, y, z) = sin(x sin(y sin x))$
+  + $f(x, y, z) = x^y^z$
+  + $f(x, y, z) = x^(y+z)$
+  + $f(x, y, z) = (x + y)^z$
+  + $f(x, y) = sin(x y)$
+  + $f(x, y) = [sin(x y)]^(cos 3)$
+  + $f(x, y) = (sin(x y), sin(x sin y), x^y)$
+
+  #solution[
+    #set enum(indent: 0pt)
+
+    + $f'(x, y, z) = (y dot x^(y - 1), ln x dot x^y, 0)$
+
+    + $ f'(x, y, z) = mat(y dot x^(y - 1), ln x dot x^y, 0; 0, 0, 1) $
+
+    + $f'(x, y) = (cos(x sin y) sin y, x cos(x sin y) cos y)$
+
+    + $
+          & f'(x, y, z) \
+        = & vec(
+              cos(x sin(y sin x))(sin(y sin x) + x y cos(y sin x)cos x),
+              x y cos(x sin(y sin x))cos(y sin x) cos x
+            )^upright(T)
+      $
+
+    + $f'(x, y, z) = (y^z dot x^(y^z - 1), z ln x dot x^y^z dot y^(z - 1), ln x ln y dot x^y^z dot y^z)$
+
+    + $f'(x, y, z) = ((y + z) dot x^(y + z - 1), ln x dot x^(y + z), ln x dot x^(y + z))$
+
+    + $f'(x, y, z) = (z (x + y)^(z - 1), z (x + y)^(z - 1), ln(x + y) dot (x + y)^z)$
+
+    + $f'(x, y) = (y cos(x y), x cos (x y))$
+
+    + $f'(x, y) = (cos 3 dot [sin(x y)]^(cos 3 - 1) dot y cos(x y), cos 3 dot [sin(x y)]^(cos 3 - 1) dot x cos(x y))$
+
+    + $
+        f'(x, y) = mat(
+          y cos(x y), x cos (x y);
+          cos(x sin y) sin y, x cos(x sin y) cos y;
+          y dot x^(y - 1), ln x dot x^y
+        )
+      $
+  ]
+]
+
+#problem[2-11][
+  Find $f'$ for the following (where $g: RR -> RR$ is continuous):
+
+  + $f(x, y) = integral_a^(x+y) g$
+
+  + $f(x, y) = integral_a^(x dot y) g$
+
+  + $f(x, y, z) = integral_(x^y)^sin(x sin(y sin z)) g$
+
+  #solution[
+    #set enum(indent: 0pt)
+
+    + $f'(x, y) = (g(x + y), g(x + y))$
+
+    + $f'(x, y) = (y dot g(x y), x dot g(x y))$
+
+    + Let $G = g(sin(x sin(y sin z)))$
+    $
+        & f'(x, y, z) \
+      = & vec(
+            & G dot cos(x sin(y sin z)) sin(y sin z),
+            & G dot x dot cos(x sin(y sin z)) dot cos(y sin z) sin z,
+            & G dot x y dot cos(x sin(y sin z)) dot cos(y sin z) cos z
+          )^upright(T)
+    $
+  ]
+]
+
+#problem[2-12][
+  A function $f: RR^n times RR^m -> RR^p$ is *bilinear* if for $x, x_1, x_2 in RR^n$, $y, y_1, y_2 in RR^m$, and $a in RR$ we have
+
+  $
+          f(a x, y) & = a f(x, y) = f(x, a y) \
+    f(x_1 + x_2, y) & = f(x_1, y) + f(x_2, y) \
+    f(x, y_1 + y_2) & = f(x, y_1) + f(x, y_2)
+  $
+
+  + Prove that if $f$ is bilinear, then
+
+    $ lim_((h, k) -> 0) abs(f(h, k)) / abs((h, k)) = 0 $
+
+  + Prove that $D f(a, b)(x, y) = f(a, y) +f(x, b)$.
+
+  + Show that the formula for $D p(a, b)$ in *Theorem 2-3* is a special case of (b).
 ]

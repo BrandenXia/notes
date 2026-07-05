@@ -934,13 +934,13 @@
 
     + $f'(x, y) = (y dot g(x y), x dot g(x y))$
 
-    + Let $G = g(sin(x sin(y sin z)))$
+    + Let $G_1 = g(sin(x sin(y sin z)))$, $G_2 = g(x^y)$
     $
         & f'(x, y, z) \
       = & vec(
-            & G dot cos(x sin(y sin z)) sin(y sin z),
-            & G dot x dot cos(x sin(y sin z)) dot cos(y sin z) sin z,
-            & G dot x y dot cos(x sin(y sin z)) dot cos(y sin z) cos z
+            & G_1 dot cos(x sin(y sin z)) sin(y sin z) - G_2 dot y x^(y - 1),
+            & G_1 dot x dot cos(x sin(y sin z)) dot cos(y sin z) sin z - G_2 dot ln x dot x^y,
+            & G_1 dot x y dot cos(x sin(y sin z)) dot cos(y sin z) cos z
           )^T
     $
   ]
@@ -1211,5 +1211,238 @@
     $
 
     which completes the proof.
+  ]
+]
+
+== Partial Derivatives
+
+#problem[2-17][
+  Find the partial derivatives of the following functions:
+  + $f(x, y, z) = x^y$
+  + $f(x, y, z) = z$
+  + $f(x, y) = sin(x sin y)$
+  + $f(x, y, z) = sin(x sin(y sin z))$
+  + $f(x, y, z) = x^y^z$
+  + $f(x, y, z) = x^(y+z)$
+  + $f(x, y, z) = (x + y)^z$
+  + $f(x, y) = sin(x y)$
+  + $f(x, y) = [sin(x y)]^(cos 3)$
+
+  #solution[
+    #set enum(indent: 0pt)
+
+    + $D_1 f(x, y, z) = y x^(y - 1)$
+
+      $D_2 f(x, y, z) = ln x dot x^y$
+
+      $D_3 f(x, y, z) = 0$
+
+    + $D_1 f(x, y, z) = 0$
+
+      $D_2 f(x, y, z) = 0$
+
+      $D_3 f(x, y, z) = 1$
+
+    + $D_1 f(x, y) = cos(x sin y) sin y$
+
+      $D_2 f(x, y) = x cos(x sin y) cos y$
+
+    + $D_1 f(x, y, z) = cos(x sin(y sin z)) sin(y sin z)$
+
+      $D_2 f(x, y, z) = x cos(x sin(y sin z)) cos(y sin z) sin z$
+
+      $D_3 f(x, y, z) = x y cos(x sin(y sin z)) cos(y sin z) cos z$
+
+    + $D_1 f(x, y, z) = y^z x^(y^z - 1)$
+
+      $D_2 f(x, y, z) = z ln x dot x^y^z y^(z - 1)$
+
+      $D_3 f(x, y, z) = ln x ln y dot x^y^z y^z$
+
+    + $D_1 f(x, y, z) = (y + z) x^(y + z - 1)$
+
+      $D_2 f(x, y, z) = ln x dot x^(y + z)$
+
+      $D_3 f(x, y, z) = ln x dot x^(y + z)$
+
+    + $D_1 f(x, y, z) = z (x + y)^(z - 1)$
+
+      $D_2 f(x, y, z) = z (x + y)^(z - 1)$
+
+      $D_3 f(x, y, z) = ln(x + y) dot (x + y)^z$
+
+    + $D_1 f(x, y) = y cos(x y)$
+
+      $D_2 f(x, y) = x cos(x y)$
+
+    + $D_1 f(x, y) = cos 3 dot y [sin(x y)]^(cos 3 - 1) cos(x y)$
+
+      $D_2 f(x, y) = cos 3 dot x [sin(x y)]^(cos 3 - 1) cos(x y)$
+  ]
+]
+
+#problem[2-18][
+  Find the partial derivatives of the following functions (where $g: RR -> RR$ is continuous):
+
+  + $f(x, y) = integral_a^(x + y) g$
+
+  + $f(x, y) = integral_y^x g$
+
+  + $f(x, y) = integral_a^(x y) g$
+
+  + $f(x, y) = integral_a^(( integral_b^y g )) g$
+
+  #solution[
+    #set enum(indent: 0pt)
+
+    + $D_1 f(x, y) = g(x + y)$
+
+      $D_2 f(x, y) = g(x + y)$
+
+    + $D_1 f(x, y) = g(x)$
+
+      $D_2 f(x, y) = - g(y)$
+
+    + $D_1 f(x, y) = y g(x y)$
+
+      $D_2 f(x, y) = x g(x y)$
+
+    + $D_1 f(x, y) = 0$
+
+      $D_2 f(x, y) = g(integral_b^y g) dot g(y)$
+  ]
+]
+
+#problem[2-19][
+  If $f(x, y) = x^x^x^x^y + (log x)(arctan(arctan(arctan(sin(cos x y) - log(x + y)))))$ find $D_2 f(1, y)$.
+
+  #solution[
+    $ D_2 f(1, y) = ln 1 dot (dots.c) + ln 1 dot (dots.c) = 0 $
+  ]
+]
+
+#problem[2-20][
+  Find the partial derivatives of $f$ in terms of the derivatives of $g$ and $h$ if
+
+  + $f(x, y) = g(x)h(y)$
+
+  + $f(x, y) = g(x)^h(y)$
+
+  + $f(x, y) = g(x)$
+
+  + $f(x, y) = g(y)$
+
+  + $f(x, y) = g(x + y)$
+
+  #solution[
+    #set enum(indent: 0pt)
+
+    + $D_1 f(x, y) = g'(x) h(y)$
+
+      $D_2 f(x, y) = g(x) h'(y)$
+
+    + $D_1 f(x, y) = h(y) g(x)^(h(y) - 1) g'(x)$
+
+      $D_2 f(x, y) = ln g(x) dot g(x)^h(y) h'(y)$
+
+    + $D_1 f(x, y) = g'(x)$
+
+      $D_2 f(x, y) = 0$
+
+    + $D_1 f(x, y) = 0$
+
+      $D_2 f(x, y) = g'(y)$
+
+    + $D_1 f(x, y) = g'(x + y)$
+
+      $D_2 f(x, y) = g'(x + y)$
+  ]
+]
+
+#problem[2-21][
+  Let $g_1, g_2: RR^2 -> RR$ be continuous. Define $f: RR^2 -> RR$ by
+
+  $ f(x, y) = integral_0^x g_1(t, 0) dd(t) + integral_0^y g_2(x, t) dd(t) $
+
+  + Show that $D_2 f(x, y) = g_2(x, y)$.
+  + How should $f$ be defined so that $D_1 f(x, y) = g_1(x, y)$?
+  + Find a function $f: RR^2 -> RR$ such that $D_1 f(x, y) = x$, $D_2 f(x, y) = y$. Find one such that $D_1 f(x, y) = y$ and $D_2 f(x, y) = x$.
+
+  #solution[
+    Since the only part of $f$ with respect to $y$ is the second part, by the fundamental theorem of calculus, we have
+
+    $ D_2 f(x, y) = pdv(, y) integral_0^y g_2(x, t) dd(t) = g_2(x, y) $
+
+    Mimic the structure in the second term in the first term will satisfy condition in the second part.
+
+    $ f(x, y) = integral_0^x g_1(t, y) dd(t) + integral_0^y g_2(0, t) dd(t) $
+
+    The two function that satisfy the condition in the third part are
+
+    $ f(x, y) & = (x^2 + y^2) / 2 quad "and" quad f(x, y) & = x y $
+  ]
+]
+
+#problem[2-22][
+  If $f: RR^2 -> RR$ and $D_2 f = 0$, show that $f$ is independent of the second variable. If $D_1 f = D_2 f = 0$, show that $f$ is constant.
+
+  #proof[
+    Fix $x in RR$. Define $g(y) = f(x, y)$. There is $g'(y) = D_2 f(x, y) = 0$. By Mean Value Theorem, for any $y_1, y_2 in RR$, $y_1 < y_2$, there is
+
+    $ (g(y_2) - g(y_1)) / (y_2 - y_1) = g'(y) = 0 $
+
+    Therefore, $f(x, y_1) = f(x, y_2)$ for any $y_1 != y_2$, and the value must be equal whenever $y_1 = y_2$, which proves that $f$ is independent of the second variable.
+
+    To prove the second part, we can follow the similar step to prove that $f$ is independent of the first variable. Then, assuming $f(x_0, y_0) = C$ at some arbitrary point, we get $f = C$ everywhere.
+  ]
+]
+
+#problem[2-23][
+  Let $A = {(x, y) in RR^2 : x < 0, "or" x >= 0 "and" y != 0}$.
+
+  + If $f: A -> RR$ and $D_1 f = D_2 f = 0$, show that $f$ is constant.
+
+  + Find a function $f: A -> RR$ such that $D_2 f = 0$ but $f$ is not independent of the second variable.
+
+  #proof[
+    Given two arbitrary points $(x_1, y_1), (x_2, y_2) in A$. There exists $x'$ where $x_1 <= x'$ and $x' > 0$. Define $L: RR^2 times RR^2 -> {A subset RR^2}$
+
+    $ L((a_x, a_y), (b_x, b_y)) = {(x, y) in RR^2 : (x - a_x) / (a_x - b_x) = (y - a_y) / (a_y - b_y)} $
+
+    Notice that $f$ is constant along $L(a, b)$ as long as $L(a, b) inter {(x, y) : x < 0 "and" y = 0} = emptyset$. Therefore, we have
+
+    $ f(x_1, y_1) = f(x', y_1) = f(x', y_2) = f(x_2, y_2) $
+
+    because $L$ connecting those points are always on domain of $f$. Since the two points are arbitrary, $f$ is constant.
+
+    For the second part, consider the function $f: A -> RR$ defined by
+
+    $
+      f(x, y) = cases(
+        e^(1 \/ x) quad & x < 0 "and" y > 0,
+        0 quad & "otherwise"
+      )
+    $
+
+    This function is differentiable everywhere on its domain, and $D_2 f = 0$, but $f(-1, -1) != f(-1, 1)$.
+  ]
+]
+
+#problem[2-24][
+  Define $f: RR^2 -> RR$ by
+
+  $
+    f(x, y) = cases(
+      x y (x^2 - y^2) / (x^2 + y^2) quad & (x, y) != 0,
+      0 quad & (x, y) = 0
+    )
+  $
+
+  + Show that $D_2 f(x, 0) = x$ for all $x$ and $D_1 f(0, y) = -y$ for all $y$.
+
+  + Show that $D_(1, 2) f(0, 0) != D_(2, 1) f(0, 0)$.
+
+  #proof[
+
   ]
 ]

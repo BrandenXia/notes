@@ -1148,4 +1148,68 @@
     $ sum_(j=1)^n a_(j i)(t) s_j (t) = b_i (t) quad i = 1, ..., n $
 
     Show that $s_i$ is differentiable and find $s_i '(t)$.
+
+  #proof[
+    Notice that determinant is multilinear, applying the result from *Problem 2-14* is sufficient to prove the first part.
+
+    The second part is simply chain rule. Since there is $f = det compose (a_(i j)(t))$, there is
+
+    $ f'(t) & = det'(a_(i j)(t)) (a_(i j) '(t)) $
+
+    Then matrix multiplication gives the desired result.
+
+    For the third part, recall that applying matrix to a vector is equivalent to solving a system of equation $A x = b$, and an explicit formula for the solution is given by Cramer's rule:
+
+    $ x_i = (det A_i) / (det A) quad "where" A_i = A "with" i"th column replaced by" b $
+
+    Thus, the explicit formula for $s_i$ is
+
+    $
+      s_i (t) = 1 / det(a_(i j)(t)) det mat(
+        a_(1 1)(t), dots.c, b_1(t), dots.c, a_(1 n)(t);
+        dots.v, , dots.v, , dots.v;
+        a_(n 1)(t), dots.c, b_n(t), dots.c, a_(n n)(t);
+      )
+    $
+
+    Since $s_i (t)$ are compositions of differentiable functions, they are differentiable. To find $s_i '(t)$, we can apply the quotient rule and the result from part two to obtain
+
+    $
+      s_i '(t) & = 1 / (det (a_(i j)(t)))^2 (
+                 det (a_(i j)(t)) sum_(j=1)^n det mat(
+                   a_(1 1)(t), dots.c, b_1(t), dots.c, a_(1 n)(t);
+                   dots.v, , dots.v, , dots.v;
+                   a_(j 1) '(t), dots.c, b_j '(t), dots.c, a_(j n) '(t);
+                   dots.v, , dots.v, , dots.v;
+                   a_(n 1)(t), dots.c, b_n(t), dots.c, a_(n n)(t);
+                 ) \
+               & - det mat(
+                   a_(1 1)(t), dots.c, b_1(t), dots.c, a_(1 n)(t);
+                   dots.v, , dots.v, , dots.v;
+                   a_(n 1)(t), dots.c, b_n(t), dots.c, a_(n n)(t);
+                 ) sum_(j=1)^n det mat(
+                   a_(11)(t), dots.c, a_(1 n)(t);
+                   dots.v, , dots.v;
+                   a_(j 1) '(t), dots.c, a_(j n) '(t);
+                   dots.v, , dots.v;
+                   a_(n 1)(t), dots.c, a_(n n)(t)
+                 )
+                 )
+    $
+  ]
+]
+
+#problem[2-16][
+  Suppose $f: RR^n -> RR^n$ is differentiable and has a differentiable inverse $f^(-1): RR^n -> RR^n$. Show that $(f^(-1))'(a) = [f'(f^(-1)(a))]^(-1)$.
+
+  #proof[
+    There is $f compose f^(-1) = I x$. Taking derivative on both side gives:
+
+    $
+      f'(f^(-1)(x)) (f^(-1))'(x) & = I \
+                    (f^(-1))'(x) & = [f'(f^(-1)(x))]^(-1)
+    $
+
+    which completes the proof.
+  ]
 ]

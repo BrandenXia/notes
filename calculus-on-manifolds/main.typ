@@ -1443,6 +1443,93 @@
   + Show that $D_(1, 2) f(0, 0) != D_(2, 1) f(0, 0)$.
 
   #proof[
+    It suffices to prove that
 
+    $ L = lim_(h -> 0) (f(x, h) - f(x, 0)) / h = x $
+
+    If $x = 0$, then $L$ obviously converges to $0$. Thus, suppose $x != 0$, we have
+
+    $
+      L = lim_(h -> 0) (x h (x^2 - h^2)) / ((x^2 + h^2) h) = x lim_(h -> 0) (x^2 - h^2) / (x^2 + h^2) = x
+    $
+
+    The other limit can be proven similarly
+
+    $ lim_(h -> 0) (f(h, y) - f(0, y)) / h = (h y (h^2 - y^2)) / (h (h^2 + y^2)) = -y $
+
+    Then, the second derivatives at $(0, 0)$ can be computed as
+
+    $
+      D_(1, 2) f(0, 0) = lim_(h -> 0) (D_1 f(0, h) - D_1 f(0, 0)) / h = lim_(h -> 0) (-h - 0) / h = -1
+    $
+
+    $ D_(2, 1) f(0, 0) = lim_(h -> 0) (D_2 f(h, 0) - D_2 f(0, 0)) / h = (h - 0) / h = 1 $
+
+    Therefore, $D_(1, 2) f(0, 0) != D_(2, 1) f(0, 0)$.
   ]
+]
+
+#problem[2-25][
+  Define $f: RR -> RR$ by
+
+  $
+    f(x) = cases(
+      e^(-x^(-2)) quad & x != 0,
+      0 quad & x = 0
+    )
+  $
+
+  Show that $f$ is a $C^oo$ function, and $f^((i))(0) = 0$ for all $i$.
+
+  #proof[
+    First, consider the $n$th derivative of $f$ where $x != 0$. We can prove that it always takes the form
+
+    $ f^((n))(x) = P_n (x^(-1)) e^(-x^(-2)) $
+
+    where $P_n$ is a polynomial through induction. The base case is trivial. Suppose it holds for $n = k$, then for $n = k + 1$
+
+    $
+      f^((k + 1)) & = P_n '(x^(-1)) dot (- x^(-2)) e^(-x^(-2)) - P_n (x^(-1)) dot 2x^(-3) e^(-x^(-2)) \
+                  & = (P_n '(x^(-1)) dot (- x^(-2)) - P_n (x^(-1)) dot 2x^(-3)) e^(-x^(-2)) \
+                  & = P_(n + 1)(x^(-1)) e^(-x^(-2))
+    $
+
+    This completes the induction. Then, we can apply induction to prove that $f^((n))(0) = 0$. The base case holds by definition. Suppose $f^((n))(0) = 0$, the $( n + 1 )$th derivative is given by the limit
+
+    $ f^((n + 1))(0) = lim_(h -> 0) ( f^((n))(h) ) / h = lim_(h -> 0) ( P_(n + 1)(x^(-1)) e^(-x^(-2)) ) / h $
+
+    Substituting $t = 1 \/ h$ gives:
+
+    $ lim_(t -> oo) (P_(n + 1)(t)) / (h e^t^2) $
+
+    Both numerator and denominator diverges to infinity, but we know that exponential function diverges way faster than polynomial. Therefore, the limit goes to $0$, which completes the induction. Since the $n$th derivative of $f$ is defined everywhere for all $n$, $f$ is a $C^oo$ function.
+  ]
+]
+
+#problem[2-26][
+  Let
+  $
+    f(x) = cases(
+      e^(-(x - 1)^(-2)) dot e^(-(x + 1)^(-2)) quad & x in (-1, 1),
+      0 quad & x in.not (-1, 1)
+    )
+  $
+
+  + Show that $f: RR -> RR$ is a $C^oo$ function which is positive on $(-1, 1)$ and $0$ elsewhere.
+
+  + Show that there's a $C^oo$ function $g: RR -> (0, 1]$ such that $g(x) = 0$ for $x <= 0$ and $g(x) = 1$ for $x >= epsilon$.
+
+  + If $a in RR^n$, define $g: RR^n -> RR$ by
+
+    $ g(x) = f([x^1 - a^1] \/ epsilon) dot ... dot f([x^n - a^n] \/ epsilon) $
+
+    Show that $g$ is a $C^oo$ function which is positive on
+
+    $ (a^1 - epsilon, a^1 + epsilon) times dots.c times (a^n - epsilon, a^n + epsilon) $
+
+    and zero elsewhere.
+
+  + If $A subset RR^n$ is open and $C subset A$ is compact, show that there is a non-negative $C^oo$ function $f: A -> RR$ such that $f(x) > 0$ for $x in C$ and $f = 0$ outside of some closed set contained in $A$.
+
+  + Show that we can choose such an $f$ so that $f: A -> [0, 1]$ and $f(x) = 1$ for $x in C$.
 ]

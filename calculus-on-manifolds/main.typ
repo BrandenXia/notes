@@ -119,7 +119,7 @@
       abs(x - y)^2 & = sum_(i=1)^n (x^i - y^i)^2 \
                    & = sum_(i=1)^n (x^i)^2 + sum_(i=1)^n (y^i)^2 - 2 sum_(i=1)^n x^i y^i \
                    & <= sum_(i=1)^n (x^i)^2 + sum_(i=1)^n (y^i)^2 + 2 sum_(i=1)^n abs(x^i)abs(y^i) \
-                   & = abs(x)^2 + abs(y)^2 + 2abs(x)abs(y) \
+                   & <= abs(x)^2 + abs(y)^2 + 2abs(x)abs(y) \
                    & = (abs(x) + abs(y))^2
     $
   ]
@@ -285,7 +285,7 @@
     Now we'd like to show that the inequality holds for all $h$. Note that $h$ can always be written as $h = sum_(i=1)^m h^i e_i$. Therefore, we have:
 
     $
-      abs(T(h)) = abs(T(sum_(i=1)^m h^i e_i)) & = abs(sum_(i=1)^m h^i T(e_i)) & <= M abs(sum_(i=1)^m h^i e_i) = M abs(h)
+      abs(T(h)) = abs(T(sum_(i=1)^m h^i e_i)) & = abs(sum_(i=1)^m h^i T(e_i)) & <= M abs(sum_(i=1)^m h^i e_i) = M^(3\/2) abs(h)
     $
   ]
 ]
@@ -1532,4 +1532,7 @@
   + If $A subset RR^n$ is open and $C subset A$ is compact, show that there is a non-negative $C^oo$ function $f: A -> RR$ such that $f(x) > 0$ for $x in C$ and $f = 0$ outside of some closed set contained in $A$.
 
   + Show that we can choose such an $f$ so that $f: A -> [0, 1]$ and $f(x) = 1$ for $x in C$.
+
+  #proof[
+  ]
 ]

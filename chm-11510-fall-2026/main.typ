@@ -248,12 +248,12 @@ A *thermochemical equation* is a balanced equation that includes the enthalpy ch
 
 The energy of light is propagated by oscillating electric and magnetic fields as the light moves in space.
 
-- frequency ($v$): number of cycles the wave undergoes per sec ($s^(-1)$ or $"Hz"$)
+- frequency ($nu$): number of cycles the wave undergoes per sec ($s^(-1)$ or $"Hz"$)
 - wavelength ($lambda$): distance between two "peaks" or "troughs"
 
 Wavelength and frequency are inversely proportional.
 
-$ c = lambda v, quad v = c \/ lambda, quad lambda = c \/ v $
+$ c = lambda nu, quad nu = c \/ lambda, quad lambda = c \/ nu $
 
 Higher amplitude = brighter = more energy
 
@@ -261,10 +261,10 @@ Lower amplitude = dimmer = less energy
 
 #rect(inset: (x: 15pt, y: 10pt))[
   Planck's Radiation Law:
-  $ E = hbar v = (hbar c) / lambda $
+  $ E = hbar nu = (hbar c) / lambda $
   - $E$ - photon energy
   - $hbar$ - Planck's constant
-  - $v$ - frequency
+  - $nu$ - frequency
   - $lambda$ - wavelength
 ]
 
@@ -328,7 +328,7 @@ $ Delta E prop abs(1/n_"final"^2 - 1/n_"initial"^2) $
 
 Meanwhile, recall that frequency is proportional to energy, and therefore inversely proportional to wavelength:
 
-$ Delta E prop v prop 1 / lambda $
+$ Delta E prop nu prop 1 / lambda $
 
 == The Quantum Mechanical Model
 

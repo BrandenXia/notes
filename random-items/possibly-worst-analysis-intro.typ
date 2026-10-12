@@ -1,4 +1,6 @@
 #let is_shitty = false
+#let when_shitty(content) = if is_shitty { content } else {}
+#let when_not_shitty(content) = if not is_shitty { content } else {}
 
 #let title = "(Possibly) Worst Introduction to Analysis"
 
@@ -16,6 +18,8 @@
   size: 13pt,
   font: ("libertinus serif", "Songti SC"),
 )
+
+#show link: it => underline(text(fill: blue)[#it])
 
 #show heading: set text(
   size: 18pt,
@@ -37,7 +41,7 @@
 
 #counter(page).update(1)
 #set page(
-  numbering: "1",
+  numbering: when_not_shitty("1"),
 )
 
 #show par: set text(
@@ -82,6 +86,26 @@
   _*Proof.*_ #h(0.5em) #body
 ]
 
+#let exercises(body) = context {
+  let last-heading-level = {
+    let past-headings = query(selector(heading).before(here()))
+
+    if past-headings.len() > 0 {
+      past-headings.last().level
+    } else {
+      0
+    }
+  }
+  [
+    #heading(
+      level: last-heading-level + 1,
+      numbering: none,
+      outlined: false,
+      "Exercises",
+    )
+    #body
+  ]
+}
 
 #outline()
 
@@ -89,7 +113,9 @@
 
 As revealed in title, this is meant to be a collections of all the terrible practices I've seen in Analysis textbooks. This is greatly inspired by the article "如何糟糕地写数学分析讲义" @how-to-write-analysis and you might find quite a few overlap with it. Meanwhile, this is a product of myself getting bored over a random long weekend. Therefore, it's simply meant for having fun and don't take it seriously.
 
-Actually, a control `is_shitty` is provided in the source code to make this even more terrible. If you want to see a better version, set `is_shitty = true` and recompile the source code.
+Actually, a control `is_shitty` is provided in the source code to make this even more terrible. This control exists so that I don't have to eat my own shit when writing in the future. If you want to see a better version, set `is_shitty = true` and recompile the source code.
+
+With that been said, I believe that there are plenty of Analysis materials much more shitty than this without being intentionally shitty. I would be glad to accept any contribution that makes this even more terrible. Feel free to submit a PR on #link("https://github.com/BrandenXia/notes/blob/main/random-items/possibly-worst-analysis-intro.typ")[GitHub].
 
 = Convergence and Limit
 
@@ -142,7 +168,7 @@ Actually, a control `is_shitty` is provided in the source code to make this even
   $ cal(F) -> x <==> cal(F) supset.eq cal(N)(x) $
 ]
 
-#if not is_shitty [
+#when_not_shitty[
   #remark[
     To see how this definition is useful, consider a sequence ${x_n}_(n in NN)$ on $X$ and its eventuality filter $cal(F)$:
 
@@ -169,7 +195,11 @@ Actually, a control `is_shitty` is provided in the source code to make this even
 
   $ lim_(x -> a) f(x) = y <==> lim_cal(F)_a f = y $
 
-  The definition of such $cal(F)^*_a$ is left as an exercise for the reader. #if not is_shitty [(Hint: try $cal(F)^*_a = {A subset.eq X : exists U in cal(N)(a), U \\ {a} subset.eq A}$.)]
+  The definition of such $cal(F)^*_a$ is left as an exercise for the reader. #when_not_shitty[(Hint: try $cal(F)^*_a = {A subset.eq X : exists U in cal(N)(a), U \\ {a} subset.eq A}$.)]
+]
+
+#exercises[
+
 ]
 
 = References

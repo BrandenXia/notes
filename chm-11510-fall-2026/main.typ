@@ -403,7 +403,7 @@ The interactions of these factors lead to shielding and penetration.
 
 Only show the highest energy.
 
-Example: #ce[Al] = $[1s^2 2s^2 2p^6] underline(3s^2 3p^1)$
+Example: #ce[Al] = $[1s^2 2s^2 2p^6] underline(3s^2 3p^1)$ = $[ce("Ne")] 3s^2 3p^1$
 
 == Effects of Nuclear Charge on Energy Levels
 

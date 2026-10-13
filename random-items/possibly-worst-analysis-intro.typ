@@ -271,7 +271,7 @@ With that been said, I believe that there are plenty of Analysis materials much 
 At this point, we won't continue to discuss further concepts of convergence in topological space. Instead, I'd rather turn back to consider the structure of convergence itself. This motives the definition of convergence space.
 
 #definition[
-  A convergence space is a set $S$ equipped with a convergence relation $cal(C) : cal(F)S times S$, where $cal(F)S$ is the collections of proper filters on $S$:
+  A convergence space is a set $S$ equipped with a convergence relation $cal(C) subset.eq cal(F)S times S$, where $cal(F)S$ is the collections of proper filters on $S$:
 
   $ cal(F)S = {cal(F) in cal(P)(cal(P)(S)) : cal(F) "is a filter"} $
 

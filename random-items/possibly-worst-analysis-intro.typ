@@ -19,7 +19,13 @@
   font: ("libertinus serif", "Songti SC"),
 )
 
-#show link: it => underline(text(fill: blue)[#it])
+#show link: it => {
+  if type(it.dest) == str {
+    underline(text(fill: blue, it))
+  } else {
+    it
+  }
+}
 
 #show heading: set text(
   size: 18pt,
@@ -61,16 +67,51 @@
   it
 }
 
-#let statement(name: "Theorem", body) = block[
-  #statement-counter.step()
-  #context {
-    let prefix = counter(heading).display()
-    let suffix = statement-counter.display("1")
-    let number = prefix + suffix
+// Calculate the statement number at a given location.
+#let statement-number(loc) = {
+  let prefix = counter(heading).display(at: loc)
+  let suffix = statement-counter.display("1", at: loc)
+  prefix + suffix
+}
 
-    [*#name #number.* #h(0.5em) #body]
+// Custom reference handling.
+#show ref: it => {
+  let el = it.element
+
+  if (
+    it.form == "normal" and el != none and el.func() == figure and el.kind == "statement"
+  ) {
+    let loc = el.location()
+    let name = if it.supplement == auto {
+      el.supplement
+    } else {
+      it.supplement
+    }
+
+    link(loc, strong[#name #statement-number(loc)])
+  } else {
+    it
   }
-]
+}
+
+// Render statement figures without figure styling.
+#show figure.where(kind: "statement"): it => align(left, it.body)
+#show figure.where(kind: "statement"): set block(breakable: true)
+
+#let statement(name: "Statement", body) = {
+  figure(
+    block(breakable: true)[
+      #statement-counter.step()
+      #context {
+        let number = statement-number(here())
+        [*#name #number.* #h(0.5em) #body]
+      }
+    ],
+    kind: "statement",
+    supplement: name,
+    outlined: false,
+  )
+}
 
 #let definition(body) = statement(name: "Definition", body)
 #let lemma(body) = statement(name: "Lemma", body)
@@ -96,6 +137,7 @@
       0
     }
   }
+  set enum(indent: 0.8em, numbering: "I.")
   [
     #heading(
       level: last-heading-level + 1,
@@ -193,7 +235,7 @@ With that been said, I believe that there are plenty of Analysis materials much 
     The reader can easily verify this is actually a filter. This naturally leads to the definition of convergence for a sequence:
 
     $ x_n -> x <==> cal(F)_{x_n} -> x $
-  ]
+  ] <eventually-filter-convergence>
 ]
 
 #definition[
@@ -212,13 +254,21 @@ With that been said, I believe that there are plenty of Analysis materials much 
   $ lim_(x -> a) f(x) = y <==> lim_cal(F)_a f = y $
 
   The definition of such $cal(F)^*_a$ is left as an exercise for the reader. #when_not_shitty[(Hint: try $cal(F)^*_a = {A subset.eq X : exists U in cal(N)(a), U \\ {a} subset.eq A}$.)]
+] <remark-construct-point-filter>
+
+#exercises[
+  #when_not_shitty[
+    + Show that the eventuality filter $cal(F)_{x_n}$ in @eventually-filter-convergence is indeed a filter.
+  ]
+
+  + Provide a definition for $cal(F)^*_a$ in @remark-construct-point-filter and show that it is indeed a filter.
 ]
 
 == Convergence Space
 
 #let Lim = $op("Lim")$
 
-At this point, we won't continue to discuss further concepts of convergence in topological space. Instead, I'd rather turn back to consider the structure of convergence itself. This leads to the definition of convergence space.
+At this point, we won't continue to discuss further concepts of convergence in topological space. Instead, I'd rather turn back to consider the structure of convergence itself. This motives the definition of convergence space.
 
 #definition[
   A convergence space is a set $S$ equipped with a convergence relation $cal(C) : cal(F)S times S$, where $cal(F)S$ is the collections of proper filters on $S$:
@@ -237,6 +287,17 @@ At this point, we won't continue to discuss further concepts of convergence in t
   + $forall x in S, x in Lim_cal(C)(dot({x}))$
   + $forall cal(F), cal(G) in cal(F)S, cal(F) subset.eq cal(G) ==> Lim_cal(C)(cal(F)) subset.eq Lim_cal(C)(cal(G))$
   + $forall cal(F) in cal(F)S, forall x in S, x in Lim_cal(C)(cal(F)) ==> x in Lim_cal(C)(cal(F) inter dot({x}))$
+]
+
+#exercises[
+  + Given a convergence space $(S, cal(C))$. Show that $cal(P)(S)$ converges to every point.
+
+  + Show that topological spaces where convergence is defined by neighborhood filters are convergence spaces.
+
+  + For a metric space $(X, d)$, we can lift it to a topological space through the metric topology, which also make it a convergence space where convergence is defined by neighborhood filters. Define $lambda_X : cal(F)X -> X -> [0, oo]$:
+    $ lambda_X (cal(F))(x) = sup_(A in cal(F)) inf_(a in A) d(x, a) $
+    Show that
+    $ cal(F) op(->)_X x <==> lambda_X (cal(F))(x) = 0 $
 ]
 
 == Continuity

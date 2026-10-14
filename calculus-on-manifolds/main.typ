@@ -1534,5 +1534,27 @@
   + Show that we can choose such an $f$ so that $f: A -> [0, 1]$ and $f(x) = 1$ for $x in C$.
 
   #proof[
+    In *Problem 2-25*, we've shown that $h(x) = e^(-x^(-2))$ is a $C^oo$ function. Notice that $f(x) = h(x-1) h(x+1)$. Since it is a product of $C^oo$ function, it's also $C^oo$. Meanwhile, $h(x) > 0$ for all $x in RR$, which is enough to show that $f(x) > 0$ for $x in (-1, 1)$ and $f(x) = 0$ elsewhere by definition.
+
+    Now, to prove the second part. Consider the following function:
+    $
+      g(x) = cases(
+        0 quad & x <= 0,
+        1 - e^2 f(x \/ epsilon) quad & 0 < x < epsilon,
+        1 quad & x >= epsilon
+      )
+    $
+    To show that this is $C^oo$, it suffices to show that this is differentiable at $0$ and $epsilon$. For $x = 0$, we have:
+    $ g'(0) = lim_(x -> 0) (g(x) - g(0)) / x = lim_(x -> 0) g(x) / x $
+    The left-hand limit is obviously $0$. The right-hand limit is:
+    $
+      lim_(x -> 0^+) g(x) / x & = lim_(x -> 0^+) (1 - e^2 f(x \/ epsilon)) / x \
+                              & = - e^2 / epsilon lim_(x -> 0^+) ( f(x \/ epsilon) - f(0) ) / (x \/ epsilon) \
+                              & = -e^2 / epsilon f'(0)
+    $
+    From the previous problem, we can easily show that $f'(0) = 0$, which completes the proof that $g'(0) = 0$.
+
+    Now, for $x = epsilon$, we have:
+    $ g'(epsilon) = lim_(x -> epsilon) (f(x) - f(epsilon)) / (x - epsilon) $
   ]
 ]

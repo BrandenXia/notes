@@ -312,6 +312,32 @@ At this point, we won't continue to discuss further concepts of convergence in t
   $ cal(F) op(->)_X x ==> f_*(cal(F)) op(->)_Y f(x) $
 ]
 
+#exercises[
+  + Show that the identity function is continuous.
+
+  + Show that composition of continuous function preserves continuity.
+
+  + Show that the definition of continuity in convergence space is equivalent to the definition of continuity in topological space, which is defined as
+    $ f: X -> Y "is continuous" <==> forall U in cal(T)_Y, f^(-1)(U) in cal(T)_X $
+
+  + Show that the definition of continuity in convergence space is equivalent to the definition of continuity in metric space, which is defined as
+    $
+      f: X -> Y & "is continuous" <==> \
+                & forall epsilon > 0, exists delta > 0, forall x in X, d_X(x, a) < delta ==> d_Y(f(x), f(a)) < epsilon
+    $
+]
+
+== Working in Convergence Space: An Example
+
+#definition[
+  A _shit_ is a tuple $(cal(f), cal(s), frak(d)_cal(s), G)$ where $G$ is a ecosystem, $cal(s)in cal(S) subset.eq G$ is a species, $cal(f) in cal(F)_cal(s) subset.eq G$ is a food, and $frak(d)_cal(s): cal(F)_cal(s) times cal(E)(G) -> G$ is a digestion process so that the following axioms are satisfied:
+  + $cal(E)(G) subset.eq cal(P)(G)$
+  + $forall cal(s) in cal(S), exists! cal(F)_cal(s) subset.eq G$
+  + $exists e in G, forall G', G' union {e} in cal(E)(G), e in.not G' ==> frak(d)_cal(s)(cal(f), G') != frak(d)_cal(s)(cal(f), G' union {e})$
+  + $forall cal(f)_1, cal(f)_2 in cal(F)_cal(s), cal(f)_1 != cal(f)_2 ==> exists G' in cal(E)(G), frak(d)_cal(s)(cal(f)_1, G') != frak(d)_cal(s)(cal(f)_2, G')$
+  + $exists cal(f) in cal(F)_cal(s), forall G' in cal(E)(G), frak(d)_cal(s)(cal(f), G') in.not cal(F)_cal(s)$
+]
+
 = References
 
 #bibliography(

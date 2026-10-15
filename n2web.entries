@@ -1,0 +1,32 @@
+# Additional standalone entry points, relative to this notes directory.
+# main.typ and index.typ are published automatically.
+# Shared definitions and included sections are intentionally omitted.
+
+# Algorithms: presentations
+algorithm-2025-2026/bignum/presentation.typ
+algorithm-2025-2026/rbtree/presentation.typ
+
+# Electricity and magnetism: standalone article
+electricity-magnetism-2025-2026/relativistic-electrodynamics.typ
+
+# Modern physics: standalone notes
+intro-to-modern-physics-2024-2025/quantum-harmonic-oscillator.typ
+intro-to-modern-physics-2024-2025/quantum-mechanics.typ
+
+# Linear algebra: presentation accompanying main.typ
+linear-algebra-2025-2026/cramers-rule/presentation.typ
+
+# Standalone problems and analysis notes
+random-items/042b312e.typ
+random-items/0cd6f853.typ
+random-items/19f4e558.typ
+random-items/303c447b.typ
+random-items/35255630.typ
+random-items/54b97425.typ
+random-items/60d7b422.typ
+random-items/817dc590.typ
+random-items/aa7e5c60.typ
+random-items/d16bf0b8.typ
+random-items/d397a123.typ
+random-items/f59f7c05.typ
+random-items/possibly-worst-analysis-intro.typ

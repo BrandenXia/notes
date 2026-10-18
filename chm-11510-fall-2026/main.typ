@@ -488,11 +488,12 @@ $
 - Trends are not regular, with many exceptions
 
 Trends in EA:
-- Down a group, EA decreases, $n$ increases
-- Across a period, EA increases, $Z_"eff"$ increases
+- Down a group, EA decreases (less negative/exothermic), $n$ increases
+- Across a period, EA increases (more negative/exothermic), $Z_"eff"$ increases
 
 Exceptions:
-Since a half-filled "p" subshell is more stable, carbon has a greater affinity for an electron than nitrogen
+- Since a half-filled "p" subshell is more stable, carbon has a greater affinity for an electron than nitrogen
+- 2A has a full "s" subshell, so it has a lower EA (less negative) than 1A
 
 == Ions
 
@@ -510,7 +511,7 @@ Since a half-filled "p" subshell is more stable, carbon has a greater affinity f
 
 - Transition metal ions rarely attain a noble gas electron configuration
   - requires the gain, or loss, of too many electrons
-- In general, transition metal atoms tend to form more than one cation by losing alll of their $n$s electrons and some of their $(n-1)d$ electrons
+- In general, transition metal atoms tend to form more than one cation by losing all of their $n$s electrons and some of their $(n-1)d$ electrons
 - In the first row of transition metal atoms (period 4), there are two exceptions to the usual way of writing electron configurations
 
 $

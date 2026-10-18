@@ -463,7 +463,7 @@ Three periodic atomic properties that directly influence electron configurations
 
 == Ionization Energy
 
-Ionization energy: IE - measure of ease with which atom gives up electrons)
+Ionization energy: IE - measure of ease with which atom gives up electrons
 
 - $"IE"_1 < "IE"_2 < "IE"_3$
 - Atoms with low IE tend to form cations during rxn (e.g., #ce[Cs] metal).

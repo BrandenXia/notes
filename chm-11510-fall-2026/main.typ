@@ -456,7 +456,7 @@ Three periodic atomic properties that directly influence electron configurations
   - $n$ increases, $Z_"eff" ~ "constant"$
   - outer electrons = further from nucleus
   - additional inner electron shield outer electrons
-- Across a period, atomic size increases
+- Across a period, atomic size decreases
   - $n ~ "constant"$, $Z_"eff"$ increases
   - outer electrons pulled closer to nucleus shielding
   - $~ "constant"$ (no additional inner electrons)

@@ -194,8 +194,10 @@ Guideline:
 
 General Rules for Drawing Lewis Structures:
 + Less electronegative atom is the central atom
-+ Check Valence electrons using the periodic table
-+ Draw bonds, complete structures, check octet rule
++ Add A-group numbers, and add or subtract electrons for ions
++ Draw single bonds, and subtract 2#ce[e-] for each bond
++ Distribute #ce[e-] so that each atom has a total of 8#ce[e-] (2#ce[e-] for #ce[H])
++ If central atom still lacks octet, move #ce[e-] pair to make bonding #ce[e-] pair
 
 == How to Determine Formal Charge
 

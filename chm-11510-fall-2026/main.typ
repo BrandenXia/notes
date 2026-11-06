@@ -37,3 +37,4 @@
 #include "sections/06-shapes-of-molecules/17.typ"
 #include "sections/06-shapes-of-molecules/18.typ"
 #include "sections/06-shapes-of-molecules/19.typ"
+#include "sections/07-intramolecular-forces/20.typ"

@@ -38,3 +38,4 @@
 #include "sections/06-shapes-of-molecules/18.typ"
 #include "sections/06-shapes-of-molecules/19.typ"
 #include "sections/07-intramolecular-forces/20.typ"
+#include "sections/08-phase-changes/21.typ"

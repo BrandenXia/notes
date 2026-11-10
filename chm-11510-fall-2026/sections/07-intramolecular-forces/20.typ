@@ -47,6 +47,7 @@ $ "polar molecule" + "pole molecule" = "attractive forces" $
 - Dispersion forces exist between *all particles*, increasing the energy of attract in all matter.
 - Dispersion forces are stronger for *more polarizable* particles.
 - _In general, larger particles experience stronger dispersion forces than smaller ones._
+- *Linear molecules* experience stronger dispersion forces than branched molecules.
 - Polarizability increases down a group in PT because atomic size increases.
 - Polarizability decreases across a period because $Z_"eff"$ makes atoms smaller.
 

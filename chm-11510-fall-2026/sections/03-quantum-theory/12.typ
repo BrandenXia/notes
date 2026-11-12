@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 12: Quantum Theory 3 - Oct 6
+= Quantum Theory 3 - Oct 6
 
 
 == Rules for Filling Orbitals

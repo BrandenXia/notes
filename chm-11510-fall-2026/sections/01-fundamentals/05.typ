@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 5: Fundamentals 5 - Sep 10
+= Fundamentals 5 - Sep 10
 
 Solution - homogeneous mixture of two or more substances
 

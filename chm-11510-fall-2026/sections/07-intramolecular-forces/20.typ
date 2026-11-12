@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 20: Intramolecular Forces
+= Intramolecular Forces
 
 #table(
   align: center + horizon,

@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 8: Thermochemistry 2 - Sep 22
+= Thermochemistry 2 - Sep 22
 
 - Often the heat absorbed or released by a reaction is expressed in $"J"$ or $"kJ"$.
 - Usually the enthalpy change is expressed on a molar basis, in $"kJ/mol"$.

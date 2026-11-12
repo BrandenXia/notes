@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 9: Thermochemistry 3 - Sep 24
+= Thermochemistry 3 - Sep 24
 
 == Hess's Law of Heat Summation
 

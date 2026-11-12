@@ -2,7 +2,7 @@
 
 #import "@preview/alchemist:0.2.0": *
 
-= Lec 17: Shapes of Molecules 1
+= Shapes of Molecules 1
 
 *Lewis structures* - structural formulas showing atoms, bonding electrons, and unshared electrons
 

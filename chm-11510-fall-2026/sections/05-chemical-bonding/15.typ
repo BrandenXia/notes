@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 15: Chemical Bonding - Oct 20
+= Chemical Bonding - Oct 20
 
 == Models of Bonding
 

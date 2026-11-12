@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 16: Chemical Bonding 2 - Oct 22
+= Chemical Bonding 2 - Oct 22
 
 - Energy is released when bonds are formed
 - Energy is absorbed when bonds are broken

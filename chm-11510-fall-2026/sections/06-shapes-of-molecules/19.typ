@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 19: Shapes of Molecules 3
+= Shapes of Molecules 3
 
 == Molecular Polarity
 

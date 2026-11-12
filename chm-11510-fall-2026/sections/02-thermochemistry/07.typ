@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 7: Thermochemistry 1 - Sep 17
+= Thermochemistry 1 - Sep 17
 
 $ "Universe" = "System" + "Surroundings" $
 

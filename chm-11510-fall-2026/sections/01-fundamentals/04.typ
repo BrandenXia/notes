@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 4: Fundamentals 4 - Sep 3
+= Fundamentals 4 - Sep 3
 
 A balanced chemical equation has the same number of atoms of each element on both sides of the equation.
 

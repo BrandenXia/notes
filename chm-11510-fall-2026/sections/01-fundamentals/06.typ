@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 6: Fundamentals 6 - Sep 15
+= Fundamentals 6 - Sep 15
 
 Double replacement reaction - two compounds react to form two new compounds by exchanging ions
 

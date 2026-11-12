@@ -2,7 +2,7 @@
 
 #import "@preview/alchemist:0.2.0": *
 
-= Lec 18: Shapes of Molecules 2
+= Shapes of Molecules 2
 
 *VSEPR* (Valence-Shell Electron Pair Repulsion) is used to determine molecular shape.
 

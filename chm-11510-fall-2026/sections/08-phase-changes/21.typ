@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 21: Phase Changes
+= Phase Changes
 
 - *Kinetic Energy* (Energy of Motion) - associated with temperature $T$
 - *Potential Energy* (Energy of Attraction) - covalent bonds and intermolecular forces

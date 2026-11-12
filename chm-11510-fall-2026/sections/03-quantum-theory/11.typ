@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 11: Quantum Theory 2 - Oct 1
+= Quantum Theory 2 - Oct 1
 
 De Broglie wavelength:
 

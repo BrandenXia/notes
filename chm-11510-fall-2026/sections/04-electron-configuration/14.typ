@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 14: Electron Configuration
+= Electron Configuration
 
 All physical/chemical properties of elements are ultimately based on electron configurations.
 

@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 1: Fundamentals 1 -  Aug 25
+= Fundamentals 1 -  Aug 25
 
 SI = International System of Units
 

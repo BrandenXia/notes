@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 2: Fundamentals 2 - Aug 27
+= Fundamentals 2 - Aug 27
 
 Total mass of substance does not change during a chemical reaction.
 

@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 13: Quantum Theory 4 - Oct 8
+= Quantum Theory 4 - Oct 8
 
 == Partial Orbital Diagrams
 

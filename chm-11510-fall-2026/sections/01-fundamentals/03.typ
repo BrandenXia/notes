@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 3: Fundamentals 3 - Sep 1
+= Fundamentals 3 - Sep 1
 
 $ 1 "mol" = 6.022 times 10^23 "formula units" = "Avogadro's Number" $
 

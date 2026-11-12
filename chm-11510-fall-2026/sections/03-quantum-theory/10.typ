@@ -1,6 +1,6 @@
 #import "../../common.typ": *
 
-= Lec 10: Quantum Theory 1 - Sep 29
+= Quantum Theory 1 - Sep 29
 
 == The wave Nature of Light
 

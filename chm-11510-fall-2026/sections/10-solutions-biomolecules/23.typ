@@ -17,6 +17,9 @@ Determining the intermolecular forces in a sample:
 
 The vapor pressure of a solution containing a *nonvolatile electrolyte* is always *lower* than the vapor pressure of the pure solvent.
 
+- Boiling point increase when IMFs are stronger
+- Freezing point decrease when IMFs are stronger
+
 == Dual Polarity and Effects on Solubility
 
 - Alcohols are organic compounds that have *dual polarity*.

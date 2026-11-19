@@ -41,3 +41,4 @@
 #include "sections/08-phase-changes/21.typ"
 #include "sections/09-solid-state/22.typ"
 #include "sections/10-solutions-biomolecules/23.typ"
+#include "sections/11-colligative-properties/24.typ"
